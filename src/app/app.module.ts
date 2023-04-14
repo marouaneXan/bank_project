@@ -8,6 +8,8 @@ import { LayoutComponent } from './component/layout/layout.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { TitleComponent } from './component/dashboard/title/title.component';
 import { TransactionFormComponent } from './component/dashboard/transaction-form/transaction-form.component';
+import { SidebarComponent } from './component/layout/sidebar/sidebar.component';
+import { NavBarComponent } from './component/layout/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TransactionFormComponent } from './component/dashboard/transaction-form
     LayoutComponent,
     DashboardComponent,
     TitleComponent,
-    TransactionFormComponent
+    TransactionFormComponent,
+    SidebarComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
