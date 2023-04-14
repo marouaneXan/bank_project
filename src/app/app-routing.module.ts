@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+import { LoginComponent } from './component/login/login.component'
+import { LayoutComponent } from './component/layout/layout.component'
+import { TransactionFormComponent } from './component/dashboard/transaction-form/transaction-form.component'
 
 const routes: Routes = [
     {
-        path: 'auth',
-        children: [
-            { path: '', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) }
-        ],
+        path: 'login', component: LoginComponent
     },
     {
-        path: 'transactions',
-        children: [
-            { path: '', loadChildren: () => import('./views/transactions/transactions.module').then(m => m.TransactionsModule) }
-        ],
+      path : '', component: LayoutComponent,
+      children: [
+        {
+          path: 'add-transaction', component: TransactionFormComponent
+        }
+      ]
     }
 ]
 @NgModule({

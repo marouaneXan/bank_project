@@ -1,0 +1,82 @@
+<div class="flex items-center justify-center overflow-auto h-50">
+  <div class="w-full px-8 xl:w-10/12">
+      <div class="flex flex-wrap items-center justify-center py-12 bg-gray-100">
+          <div class="relative h-16 mt-4 rounded w-52 md:mt-0" [class]="wizardUtil.step == 1 ? 'bg-slate-400' : 'bg-transparent'">
+              <div class="absolute inset-0 flex flex-col items-center justify-center w-full px-6 m-0">
+                  <p class="w-full text-sm font-medium leading-4 text-white">Step 1</p>
+              </div>
+          </div>
+          <div class="relative h-16 mt-4 ml-1 rounded w-52 md:mt-0" [class]="wizardUtil.step == 2 ? 'bg-slate-400' : 'bg-transparent'">
+              <div class="absolute inset-0 flex flex-col items-center justify-center w-full px-6 m-0" >
+                  <p class="w-full text-sm font-medium leading-4 text-white">Step 2</p>
+              </div>
+          </div>
+          <div class="relative h-16 mt-4 ml-1 rounded w-52 md:mt-0" [class]="wizardUtil.step == 3 ? 'bg-slate-400' : 'bg-transparent'">
+              <div class="absolute inset-0 flex flex-col items-center justify-center w-full px-6 m-0">
+                  <p class="w-full text-sm font-medium leading-4 text-white">Step 3</p>
+              </div>
+          </div>
+      </div>
+      <div *ngIf="wizardUtil.step == 1" class="xl:px-24">
+          <div class="justify-between pb-16 mt-16 border-b border-gray-200 lg:flex">
+              <div class="w-80">
+                  <div class="flex items-center">
+                      <h1 class="pr-2 text-xl font-medium leading-5 text-gray-800">Personal Information</h1>
+                  </div>
+              </div>
+              <div>
+                  <div class="items-center mt-4 md:flex lg:ml-24 lg:mt-0">
+                      <div class="md:w-64">
+                          <label class="text-sm leading-none text-gray-800" id="firstName">First name</label>
+                          <input type="name" tabindex="0" class="w-full p-3 mt-3 text-sm font-medium leading-none text-gray-800 bg-gray-100 border border-gray-200 rounded focus:outline-none focus:border-gray-600" aria-labelledby="firstName" placeholder="John" />
+                      </div>
+                      <div class="mt-4 md:w-64 md:ml-12 md:mt-0">
+                          <label class="text-sm leading-none text-gray-800" id="lastName">Last name</label>
+                          <input type="name" tabindex="0" class="w-full p-3 mt-3 text-sm font-medium leading-none text-gray-800 bg-gray-100 border border-gray-200 rounded focus:outline-none focus:border-gray-600" aria-labelledby="lastName" placeholder="Doe" />
+                      </div>
+                  </div>
+                  <div class="items-center mt-8 md:flex lg:ml-24">
+                      <div class="md:w-64">
+                          <label class="text-sm leading-none text-gray-800" id="emailAddress">Email address</label>
+                          <input type="email" tabindex="0" class="w-full p-3 mt-3 text-sm font-medium leading-none text-gray-800 bg-gray-100 border border-gray-200 rounded focus:outline-none focus:border-gray-600" aria-labelledby="emailAddress" placeholder="youremail@example.com" />
+                      </div>
+                      <div class="mt-4 md:w-64 md:ml-12 md:mt-0">
+                          <label class="text-sm leading-none text-gray-800" id="phone">Phone number</label>
+                          <input type="name" tabindex="0" class="w-full p-3 mt-3 text-sm font-medium leading-none text-gray-800 bg-gray-100 border border-gray-200 rounded focus:outline-none focus:border-gray-600" aria-labelledby="phone" placeholder="123-1234567" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="justify-between pb-16 mt-16 mb-4 border-b border-gray-200 lg:flex">
+              <div class="w-80">
+                  <div class="flex items-center">
+                      <h1 class="pr-2 text-xl font-medium leading-5 text-gray-800">Bank Information</h1>
+                  </div>
+              </div>
+              <div>
+                  <div class="items-center mt-4 md:flex lg:ml-24 lg:mt-0">
+                      <div class="md:w-64">
+                          <label class="text-sm leading-none text-gray-800" id="password">detaile de rib</label>
+                          <input type="name" tabindex="0" class="w-full p-3 mt-3 text-sm font-medium leading-none text-gray-800 bg-gray-100 border border-gray-200 rounded focus:outline-none focus:border-gray-600" aria-labelledby="password" placeholder="Enter your password" />
+                      </div>
+                      <div class="mt-4 md:w-64 md:ml-12 md:mt-0">
+                          <label class="text-sm leading-none text-gray-800" id="securityCode">Montant</label>
+                          <input type="name" tabindex="0" class="w-full p-3 mt-3 text-sm font-medium leading-none text-gray-800 bg-gray-100 border border-gray-200 rounded focus:outline-none focus:border-gray-600" aria-labelledby="securityCode" placeholder="Enter your security code" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div *ngIf="wizardUtil.step == 2" class="xl:px-24">
+        <h1>Invoice Check</h1>
+      </div>
+      <div *ngIf="wizardUtil.step == 3" class="xl:px-24">
+        <h1>telecharger Invoice</h1>
+      </div>
+        <div>
+          <button class="" (click)="previousStep()">retour</button>
+          <button (click)="nextStep()" class="p-4 ml-1 text-white bg-indigo-500">suivant</button>
+        </div>
+  </div>
+</div>
+
