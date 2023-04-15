@@ -1,1 +1,108 @@
-<p>add-transaction works!</p>
+<div class="flex flex-col md:space-y-8">
+    <div class="flex justify-between items-start p-4 rounded-t border-b">
+        <h3 class="text-xl font-medium">Make transaction</h3>
+    </div>
+    <ol class="items-center w-full justify-center space-y-4 sm:flex sm:space-x-28 sm:space-y-0">
+        <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5" [ngClass]="{
+            'text-blue-600 dark:text-blue-500':step===0
+        }">
+            <span [ngClass]="{
+                'text-blue-600':step===0,
+                'dark:border-blue-500':step===0
+            }" class="flex items-center justify-center border-gray-500 w-8 h-8 border rounded-full shrink-0">
+                1
+            </span>
+            <span>
+                <h3 class="font-medium leading-tight">Transaction informations</h3>
+            </span>
+            <svg aria-hidden="true" class="w-4 h-4 ml-2 sm:ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7">
+                </path>
+            </svg>
+        </li>
+        <li [ngClass]="{
+            'text-blue-600':step===1,
+            'dark:border-blue-500':step===1
+        }" class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+        <span [ngClass]="{
+            'text-blue-600':step===1,
+            'dark:border-blue-500':step===1
+        }" class="flex items-center justify-center border-gray-500 w-8 h-8 border rounded-full shrink-0">
+            2
+        </span>
+            <span>
+                <h3 class="font-medium leading-tight">Review informations</h3>
+            </span>
+            <svg aria-hidden="true" class="w-4 h-4 ml-2 sm:ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7">
+                </path>
+            </svg>
+        </li>
+        <li [ngClass]="{
+            'text-blue-600':step===2,
+            'dark:border-blue-500':step===2
+        }" class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+            <span [ngClass]="{
+                'text-blue-600':step===2,
+                'dark:border-blue-500':step===2
+            }"
+                class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                3
+            </span>
+            <span>
+                <h3 class="font-medium leading-tight">transaction successffully</h3>
+            </span>
+        </li>
+    </ol>
+
+    <form class="px-6 py-2 space-y-2">
+        <div class="grid grid-cols-6 gap-6">
+            <div *ngIf="step===0" class="col-span-6 sm:col-span-3">
+                <label class="block mb-2 text-sm font-medium text-gray-900">
+                    From
+                </label>
+                <input formControlName="formId" type="text" placeholder="From client"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
+            </div>
+            <div *ngIf="step===0" class="col-span-6 sm:col-span-3">
+                <label class="block mb-2 text-sm font-medium text-gray-900">
+                    To
+                </label>
+                <input formControlName="toId" type="text" placeholder="To client"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
+            </div>
+            <div *ngIf="step===0" class="col-span-6 sm:col-span-3">
+                <label class="block mb-2 text-sm font-medium text-gray-900">
+                    Amount
+                </label>
+                <input formControlName="amount" type="number" placeholder="Amount"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
+            </div>
+        </div>
+        <div class="" *ngIf="step===1">
+            Review transaction
+        </div>
+        <div class="" *ngIf="step===2">
+            success transaction
+        </div>
+    </form>
+    <div class="p-6 rounded-b border-t border-gray-200 d-flex justify-content-between">
+        <button *ngIf="step>=1" (click)="previousStep()"
+            class="cursor-pointer text-gray-500 border-blue-400 font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 border border-blue"
+            type="button">
+            back
+        </button>
+        <button *ngIf="step===1"
+            class="bg-blue-600 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            type="button">
+            Submit
+        </button>
+        <button *ngIf="step===0" (click)="nextStep()"
+            class="bg-blue-600 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            type="button">
+            next
+        </button>
+    </div>
+</div>

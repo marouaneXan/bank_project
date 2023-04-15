@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ListTransactionsComponent } from './components/list-transactions/list-transactions.component';
 import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
 import { PartialsModule } from 'src/app/views/partials/partials.module';
+import { TransactionRoutingModule } from './transaction-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +15,9 @@ import { PartialsModule } from 'src/app/views/partials/partials.module';
   ],
   imports: [
     CommonModule,
-    PartialsModule
+    PartialsModule,
+    TransactionRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class TransactionModule { }

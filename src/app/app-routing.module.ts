@@ -9,9 +9,9 @@ const routes: Routes = [
         ],
     },
     {
-        path: 'transactions',
+        path: 'admin',
         children: [
-            { path: '', loadChildren: () => import('./views/transactions/transactions.module').then(m => m.TransactionsModule) }
+            { path: '', loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule) }
         ],
     }
 ]

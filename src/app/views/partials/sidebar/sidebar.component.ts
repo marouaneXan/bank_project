@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class SidebarComponent implements OnInit {
   isList: number = 0;
   isMenu: boolean = false;
   isSearch: boolean = false;
