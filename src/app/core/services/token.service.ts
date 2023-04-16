@@ -6,15 +6,15 @@ import { Injectable } from '@angular/core';
 export class TokenService {
 
   constructor() { }
-  setDataToLocalStorage(data: { admin_id: string, token: string }) {
-    localStorage.setItem('admin_id', data.admin_id)
+  setDataToLocalStorage(data: { agent_id: string, token: string }) {
+    localStorage.setItem('agent_id', data.agent_id)
     localStorage.setItem('access_token', data.token)
   }
   getToken() {
     return localStorage.getItem('access_token')
   }
-  getAdminId() {
-    return localStorage.getItem('admin_id')
+  getAgentId() {
+    return localStorage.getItem('agent_id')
   }
   clearLocalStorage() {
     localStorage.clear()
@@ -26,17 +26,13 @@ export class TokenService {
     const payload = token.split('.')[1]
     return this.decode(payload)
   }
-  getAdminIdFromPayload() {
-    const token = this.getToken()
-    return token ? this.payload(token).id : ''
-  }
   isValid() {
     const token = this.getToken()
-    const admin_id = this.getAdminId()
+    const agent_id = this.getAgentId()
     if (token) {
       const payload = this.payload(token)
       if (payload) {
-        return admin_id === payload.id
+        return agent_id === payload.agent_id
       }
     }
     return false
