@@ -2,67 +2,20 @@
     <app-navbar></app-navbar>
 </div>
 
-<div style="min-height: 700px" class="z-10 hidden h-full shadow w-60 lg:relative bg-gray-50 lg:block">
+<div style="min-height: 700px" class="z-10 hidden h-full p-5 shadow w-60 lg:relative bg-gray-50 lg:block">
 
     <div class="fixed top-0 z-20 flex flex-col items-start h-full gap-10 pt-4 w-60 bg-gray-50">
-        <a href="index.html" class="text-2xl font-bold text-gray-800">Application</a>
-        <ul aria-orientation="vertical" class="">
-            <li
-                class="pt-5 pb-4 pl-6 text-sm leading-3 tracking-normal text-indigo-700 cursor-pointer focus:text-indigo-700 focus:outline-none">
-                <div class="flex items-center">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-grid" width="20"
-                            height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" />
-                            <rect x="4" y="4" width="6" height="6" rx="1" />
-                            <rect x="14" y="4" width="6" height="6" rx="1" />
-                            <rect x="4" y="14" width="6" height="6" rx="1" />
-                            <rect x="14" y="14" width="6" height="6" rx="1" />
-                        </svg>
-                    </div>
-                    <span class="ml-2">Dashboard</span>
-                </div>
-            </li>
-            <li
-                class="py-2 pl-6 mt-4 mb-4 text-sm leading-3 tracking-normal text-gray-600 cursor-pointer hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-puzzle" width="20"
-                        height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <path
-                            d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1" />
-                    </svg>
-                    <span class="ml-2">Products</span>
-                </div>
-            </li>
-            <li
-                class="py-2 pl-6 mb-4 text-sm leading-3 tracking-normal text-gray-600 cursor-pointer hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-compass" width="20"
-                        height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <polyline points="8 16 10 10 16 8 14 14 8 16" />
-                        <circle cx="12" cy="12" r="9" />
-                    </svg>
-                    <span class="ml-2">Performance</span>
-                </div>
-            </li>
-            <li
-                class="py-2 pl-6 text-sm leading-3 tracking-normal text-gray-600 cursor-pointer hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="20"
-                        height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <polyline points="7 8 3 12 7 16" />
-                        <polyline points="17 8 21 12 17 16" />
-                        <line x1="14" y1="4" x2="10" y2="20" />
-                    </svg>
-                    <span class="ml-2">Deliverables</span>
-                </div>
+        <a routerLink="/admin" class="text-2xl font-bold text-gray-800 cursor-pointer">Bank Project</a>
+        <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+            <li *ngFor="let link of sidebarLinks; let i = index" class="items-center">
+                <a [routerLink]="[link.path]" class="text-xs uppercase py-3 font-bold block" routerLinkActive
+                    #activeLink="routerLinkActive"
+                    [ngClass]="i === activeLinkIndex ? 'text-red-600 hover:text-red-700' : 'text-blueGray-700 hover:text-blue-500'"
+                    (click)="setActiveLink(i)">
+                    <i class="mr-2 text-sm" [class]="link.icon"
+                        [ngClass]="i === activeLinkIndex ? 'opacity-75' : 'text-blueGray-300'"></i>
+                    {{ link.name }}
+                </a>
             </li>
         </ul>
     </div>

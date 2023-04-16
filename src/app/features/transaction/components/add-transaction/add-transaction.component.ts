@@ -12,7 +12,7 @@ export class AddTransactionComponent {
     formId: new FormControl(null, [Validators.required]),
     toId: new FormControl(null, [Validators.required]),
     // AgentId: new FormControl(null, [Validators.required]),
-    Amount: new FormControl(null, [Validators.required]),
+    amount: new FormControl(null, [Validators.required]),
   })
   nextStep() {
     this.step++

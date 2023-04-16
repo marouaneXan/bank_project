@@ -3,7 +3,7 @@
         <h3 class="text-xl font-medium">Make transaction</h3>
     </div>
     <ol class="items-center w-full justify-center space-y-4 sm:flex sm:space-x-28 sm:space-y-0">
-        <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5" [ngClass]="{
+        <li class="flex items-center text-gray-500 space-x-2.5" [ngClass]="{
             'text-blue-600 dark:text-blue-500':step===0
         }">
             <span [ngClass]="{
@@ -21,16 +21,15 @@
                 </path>
             </svg>
         </li>
-        <li [ngClass]="{
-            'text-blue-600':step===1,
-            'dark:border-blue-500':step===1
-        }" class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-        <span [ngClass]="{
-            'text-blue-600':step===1,
-            'dark:border-blue-500':step===1
-        }" class="flex items-center justify-center border-gray-500 w-8 h-8 border rounded-full shrink-0">
-            2
-        </span>
+        <li class="flex items-center text-gray-500 space-x-2.5" [ngClass]="{
+            'text-blue-600 dark:text-blue-500':step===1
+        }">
+            <span [ngClass]="{
+                'text-blue-600':step===1,
+                'dark:border-blue-500':step===1
+            }" class="flex items-center justify-center border-gray-500 w-8 h-8 border rounded-full shrink-0">
+                2
+            </span>
             <span>
                 <h3 class="font-medium leading-tight">Review informations</h3>
             </span>
@@ -40,15 +39,13 @@
                 </path>
             </svg>
         </li>
-        <li [ngClass]="{
-            'text-blue-600':step===2,
-            'dark:border-blue-500':step===2
-        }" class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+        <li class="flex items-center text-gray-500 space-x-2.5" [ngClass]="{
+            'text-blue-600 dark:text-blue-500':step===2
+        }">
             <span [ngClass]="{
                 'text-blue-600':step===2,
                 'dark:border-blue-500':step===2
-            }"
-                class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+            }" class="flex items-center justify-center border-gray-500 w-8 h-8 border rounded-full shrink-0">
                 3
             </span>
             <span>
@@ -57,7 +54,7 @@
         </li>
     </ol>
 
-    <form class="px-6 py-2 space-y-2">
+    <form class="px-6 py-2 space-y-2" [formGroup]="transactionForm">
         <div class="grid grid-cols-6 gap-6">
             <div *ngIf="step===0" class="col-span-6 sm:col-span-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900">
