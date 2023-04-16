@@ -81,21 +81,20 @@
         <div class="" *ngIf="step===1">
             Review transaction
         </div>
-        <div *ngIf="step===2" class="flex justify-center items-center w-full">
+        <div *ngIf="step===2 && success" class="flex justify-center items-center w-full">
             <div class="p-4 w-full max-w-md">
                 <div class="p-4 text-center bg-white rounded-lg shadow  sm:p-5">
                     <div
                         class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 p-2 flex items-center justify-center mx-auto mb-3.5">
-                        <svg aria-hidden="true" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
+                        <svg aria-hidden="true" class="w-8 h-8 text-white success-icon" fill="currentColor"
+                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                 clip-rule="evenodd"></path>
                         </svg>
                         <span class="sr-only">Success</span>
                     </div>
-                    <p class="mb-4 text-lg font-semibold text-gray-600">Successfully transaction.
-                    </p>
+                    <p class="mb-4 text-lg font-semibold text-gray-600 success-text">Successfully transaction.</p>
                     <button routerLink="/admin/transactions"
                         class="bg-blue-600 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                         type="button">
@@ -111,11 +110,14 @@
             type="button">
             back
         </button>
-        <button *ngIf="step===1" (click)="makeTransaction(transactionForm)"
+        <button *ngIf="step===1" (click)="makeTransaction(transactionForm)" [disabled]="isLoading"
             class="bg-blue-600 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-            type="button">
+            [ngClass]="{
+                'bg-gray-400':isLoading,
+            }" type="button">
             <div class="flex gap-2 items-center">
-                Submit <app-spinner [props]="{width:'22px',height:'22px'}"></app-spinner>
+                {{isLoading ? 'loading':'submit'}}
+                <app-spinner *ngIf="isLoading" [props]="{width:'22px',height:'22px'}"></app-spinner>
             </div>
         </button>
         <button *ngIf="step===0" (click)="nextStep()"
