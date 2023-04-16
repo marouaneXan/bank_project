@@ -1,1 +1,57 @@
-<i class="fa-solid fa-gauge"></i>
+<button
+    class="bg-blue-500 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+    type="button">
+    <i class="fa-solid fa-plus"></i>
+    add transaction
+</button>
+<div class="flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-gray-50 mt-5">
+    <div class="rounded-t py-3 border-0 mb-5">
+      <div class="flex flex-wrap items-center">
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+          <h3 class="text-lg font-medium">
+            List of transactions
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="block w-full overflow-x-auto">
+      <table class="items-center w-full bg-transparent border-collapse">
+        <thead>
+          <tr>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+              from
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+              to
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+              amount
+            </th>
+            <th
+              class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+              from client
+            </td>
+            <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+              to client
+            </td>
+            <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+              transaction amount
+            </td>
+            <td class="space-x-2 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+              see more
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
