@@ -3,6 +3,6 @@ export interface Transaction {
     fromId: string,
     toId: string,
     AgentId: string,
-    Amount: number,
+    amount: number,
     date: Date
 }
