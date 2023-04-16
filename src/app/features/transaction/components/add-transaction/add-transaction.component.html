@@ -55,22 +55,29 @@
     </ol>
 
     <form class="px-6 py-2 space-y-2" [formGroup]="transactionForm">
-        <div class="grid grid-cols-6 gap-6">
-            <div *ngIf="step===0" class="col-span-6 sm:col-span-3">
+        <div *ngIf="step===0" class="grid grid-cols-6 gap-6">
+            <div class="col-span-6 sm:col-span-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900">
                     From
                 </label>
                 <input formControlName="formId" type="text" placeholder="From client"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
             </div>
-            <div *ngIf="step===0" class="col-span-6 sm:col-span-3">
+            <div class="col-span-6 sm:col-span-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900">
                     To
                 </label>
                 <input formControlName="toId" type="text" placeholder="To client"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
             </div>
-            <div *ngIf="step===0" class="col-span-6 sm:col-span-3">
+            <div class="col-span-6 sm:col-span-3">
+                <label class="block mb-2 text-sm font-medium text-gray-900">
+                    Agent id
+                </label>
+                <input formControlName="agentId" type="text" placeholder="Agent id"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
+            </div>
+            <div class="col-span-6 sm:col-span-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900">
                     Amount
                 </label>
@@ -92,6 +99,7 @@
             back
         </button>
         <button *ngIf="step===1"
+        (click)="makeTransaction(transactionForm)"
             class="bg-blue-600 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
             type="button">
             Submit

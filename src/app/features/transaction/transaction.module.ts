@@ -5,6 +5,7 @@ import { AddTransactionComponent } from './components/add-transaction/add-transa
 import { PartialsModule } from 'src/app/views/partials/partials.module';
 import { TransactionRoutingModule } from './transaction-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     PartialsModule,
     TransactionRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class TransactionModule { }

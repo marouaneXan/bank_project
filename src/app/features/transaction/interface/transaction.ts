@@ -1,5 +1,5 @@
 export interface Transaction {
-    id: string,
+    id?: string,
     fromId: string,
     toId: string,
     AgentId: string,
