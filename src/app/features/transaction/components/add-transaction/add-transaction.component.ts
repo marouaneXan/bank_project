@@ -18,7 +18,7 @@ export class AddTransactionComponent {
     amount: new FormControl(null, [Validators.required]),
   })
   nextStep() {
-    const { value }: any = this.transactionForm;
+    const { value }: FormGroup = this.transactionForm;
     const fields = ['formId', 'toId', 'agentId', 'amount'];
 
     if (fields.some(field => !value[field])) {
@@ -31,7 +31,8 @@ export class AddTransactionComponent {
     this.step--
   }
   makeTransaction(transactionForm: FormGroup) {
-    this.downloadCsv(transactionForm.value)
+    console.log(transactionForm.value);
+    // this.downloadCsv(transactionForm.value)
   }
   convertToCsv(data: any[]): string {
     const separator = ',';
