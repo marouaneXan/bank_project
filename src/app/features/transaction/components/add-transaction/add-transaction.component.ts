@@ -9,12 +9,11 @@ import { saveAs } from 'file-saver';
   styleUrls: ['./add-transaction.component.css']
 })
 export class AddTransactionComponent {
-  step: number = 0
+  step: number = 2
   constructor(private toastr: ToastrService) { }
   transactionForm = new FormGroup({
     formId: new FormControl(null, [Validators.required]),
     toId: new FormControl(null, [Validators.required]),
-    agentId: new FormControl(null, [Validators.required]),
     amount: new FormControl(null, [Validators.required]),
   })
   nextStep() {

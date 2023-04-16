@@ -6,6 +6,7 @@ import { PartialsModule } from 'src/app/views/partials/partials.module';
 import { TransactionRoutingModule } from './transaction-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SpinnerModule } from '../spinner/spinner.module';
 
 
 
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     PartialsModule,
     TransactionRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SpinnerModule
   ]
 })
 export class TransactionModule { }

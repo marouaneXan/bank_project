@@ -49,7 +49,7 @@
                 3
             </span>
             <span>
-                <h3 class="font-medium leading-tight">transaction successffully</h3>
+                <h3 class="font-medium leading-tight">transaction successfully</h3>
             </span>
         </li>
     </ol>
@@ -72,13 +72,6 @@
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900">
-                    Agent id
-                </label>
-                <input formControlName="agentId" type="text" placeholder="Agent id"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
-            </div>
-            <div class="col-span-6 sm:col-span-3">
-                <label class="block mb-2 text-sm font-medium text-gray-900">
                     Amount
                 </label>
                 <input formControlName="amount" type="number" placeholder="Amount"
@@ -88,21 +81,42 @@
         <div class="" *ngIf="step===1">
             Review transaction
         </div>
-        <div class="" *ngIf="step===2">
-            success transaction
+        <div *ngIf="step===2" class="flex justify-center items-center w-full">
+            <div class="p-4 w-full max-w-md">
+                <div class="p-4 text-center bg-white rounded-lg shadow  sm:p-5">
+                    <div
+                        class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 p-2 flex items-center justify-center mx-auto mb-3.5">
+                        <svg aria-hidden="true" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Success</span>
+                    </div>
+                    <p class="mb-4 text-lg font-semibold text-gray-600">Successfully transaction.
+                    </p>
+                    <button routerLink="/admin/transactions"
+                        class="bg-blue-600 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                        type="button">
+                        Continu
+                    </button>
+                </div>
+            </div>
         </div>
     </form>
     <div class="p-6 rounded-b border-t border-gray-200 d-flex justify-content-between">
-        <button *ngIf="step>=1" (click)="previousStep()"
+        <button *ngIf="step==1" (click)="previousStep()"
             class="cursor-pointer text-gray-500 border-blue-400 font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 border border-blue"
             type="button">
             back
         </button>
-        <button *ngIf="step===1"
-        (click)="makeTransaction(transactionForm)"
+        <button *ngIf="step===1" (click)="makeTransaction(transactionForm)"
             class="bg-blue-600 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
             type="button">
-            Submit
+            <div class="flex gap-2 items-center">
+                Submit <app-spinner [props]="{width:'22px',height:'22px'}"></app-spinner>
+            </div>
         </button>
         <button *ngIf="step===0" (click)="nextStep()"
             class="bg-blue-600 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
