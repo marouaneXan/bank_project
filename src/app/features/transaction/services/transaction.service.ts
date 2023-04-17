@@ -19,7 +19,7 @@ export class TransactionService {
   getListTransaction()
   {
     try {
-      return this.http.get(`${this.endpoint}/listTransaction`)
+      return this.http.get(`${this.endpoint}/transactions`)
     } catch (error) {
       return throwError(error);
 
