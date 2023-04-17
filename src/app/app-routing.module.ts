@@ -13,12 +13,13 @@ const routes: Routes = [
     },
     {
         path: 'admin',
-        canActivate: [AuthActivateGuard],
+        // canActivate: [AuthActivateGuard],
         children: [
             { path: '', loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule) }
         ],
-    }
+    },
 ]
+
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]

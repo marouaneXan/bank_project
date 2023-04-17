@@ -9,6 +9,13 @@ const routes: Routes = [
     children:[
       { path: 'transactions', loadChildren: () => import('../features/transaction/transaction.module').then(m => m.TransactionModule) },
     ]
+  }, 
+  {
+    path:'list',
+    component:LayoutComponent,
+    children:[
+      { path: 'list', loadChildren: () => import('../features/transaction/transaction.module').then(m => m.TransactionModule) },
+    ]
   }
 ];
 
