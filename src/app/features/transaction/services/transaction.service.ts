@@ -8,7 +8,6 @@ import { Transaction } from '../interface/transaction';
 })
 export class TransactionService {
   private endpoint = "http://localhost:3000"
-
   constructor(private http: HttpClient) { }
   addTransaction(data: Transaction) {
     return this.http.post(this.endpoint+'/transactions', data).pipe(

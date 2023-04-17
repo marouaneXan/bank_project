@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TransactionService } from '../../services/transaction.service';
 
 @Component({
   selector: 'app-list-transactions',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-transactions.component.css']
 })
 export class ListTransactionsComponent {
+  listTransaction:any;
+  constructor(private transactionService: TransactionService) { }
 
+ngOnInit():void{
+  this.transactionService.getListTransaction().subscribe((Transaction)=>{
+    this.listTransaction=Transaction
+  })
 }
+ 
+}
+
