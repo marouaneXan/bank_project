@@ -17,4 +17,13 @@ export class TransactionService {
       })
     );
   }
+  getListTransaction()
+  {
+    try {
+      return this.http.get(`${this.endpoint}/listTransaction`)
+    } catch (error) {
+      return throwError(error);
+
+    }
+  }
 }
