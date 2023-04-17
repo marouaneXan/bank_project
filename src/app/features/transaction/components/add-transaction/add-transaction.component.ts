@@ -4,7 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 import { saveAs } from 'file-saver';
 import { TransactionService } from '../../services/transaction.service';
 import { LoadingService } from 'src/app/core/services/loading.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-transaction',
@@ -19,7 +18,6 @@ export class AddTransactionComponent {
   transactionForm = new FormGroup({
     fromId: new FormControl(null, [Validators.required]),
     toId: new FormControl(null, [Validators.required]),
-    // agentId: new FormControl(localStorage.getItem('agent_id'), [Validators.required]),
     amount: new FormControl(null, [Validators.required]),
   })
   nextStep() {
