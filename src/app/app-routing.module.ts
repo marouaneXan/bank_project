@@ -19,10 +19,6 @@ const routes: Routes = [
             { path: '', loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule) }
         ],
     },
-    {
-        path:"ts",component:ListTransactionsComponent
-    }
-  
 ]
 
 @NgModule({
