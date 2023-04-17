@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { AuthActivateGuard } from './core/guards/auth-activate.guard'
 import { AuthDeactivateGuard } from './core/guards/auth-deactivate.guard'
-import { ListTransactionsComponent } from './features/transaction/components/list-transactions/list-transactions.component'
 
 const routes: Routes = [
     {
