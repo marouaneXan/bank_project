@@ -7,13 +7,11 @@ import { TransactionRoutingModule } from './transaction-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerModule } from '../spinner/spinner.module';
-
-
-
+import {DataTablesModule } from 'angular-datatables';
 @NgModule({
   declarations: [
     ListTransactionsComponent,
-    AddTransactionComponent
+    AddTransactionComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +19,8 @@ import { SpinnerModule } from '../spinner/spinner.module';
     TransactionRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SpinnerModule
+    SpinnerModule,
+    DataTablesModule 
   ]
 })
 export class TransactionModule { }

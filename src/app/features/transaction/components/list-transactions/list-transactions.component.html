@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="block w-full overflow-x-auto">
-    <table class="items-center w-full bg-transparent border-collapse">
+    <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="items-center w-full bg-transparent border-collapse">
       <thead>
         <tr>
           <th
@@ -43,9 +43,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr  *ngFor="let transaction of listTransaction">
+        
+        <tr *ngFor="let transaction of listTransaction ">
           <td
-           
             class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2"
           >
             {{ transaction.fromId }}
@@ -53,12 +53,12 @@
           <td
             class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2"
           >
-          {{ transaction.toId }}
-        </td>
+            {{ transaction.toId }}
+          </td>
           <td
             class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2"
           >
-          {{ transaction.amount }}
+            {{ transaction.amount }}
           </td>
           <td
             class="space-x-2 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2"
@@ -66,7 +66,12 @@
             see more
           </td>
         </tr>
+        <tr *ngIf="listTransaction.length === 0">
+          <td colspan="4" class="text-center p-4">No transactions available</td>
+        </tr>
       </tbody>
+      <!-- <app-modal></app-modal> -->
+      
     </table>
   </div>
 </div>

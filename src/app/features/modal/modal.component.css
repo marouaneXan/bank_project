@@ -1,0 +1,24 @@
+Example of Tailwind CSS classes for modal styling
+.modal-content {
+    @apply bg-white p-4 rounded-lg shadow-lg;
+  }
+  
+  .modal-header {
+    @apply flex justify-between items-center pb-3 border-b border-gray-300;
+  }
+  
+  .modal-title {
+    @apply text-lg font-bold;
+  }
+  
+  .modal-body {
+    @apply py-2;
+  }
+  
+  .modal-footer {
+    @apply flex justify-end pt-3 border-t border-gray-300;
+  }
+  
+  .close {
+    @apply text-gray-500 hover:text-gray-700 cursor-pointer;
+  }
