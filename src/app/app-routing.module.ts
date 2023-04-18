@@ -5,7 +5,7 @@ import { AuthDeactivateGuard } from './core/guards/auth-deactivate.guard'
 const routes: Routes = [
     {
         path: 'auth',
-        canActivate: [AuthDeactivateGuard],
+        canActivate: [AuthDeactivateGuard], 
         children: [
             { path: '', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) }
         ],
@@ -19,8 +19,13 @@ const routes: Routes = [
     },
 ]
 
+
+
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
 })
+
+
+
 export class AppRoutingModule { }

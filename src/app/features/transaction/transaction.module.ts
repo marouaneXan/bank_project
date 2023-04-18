@@ -8,10 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerModule } from '../spinner/spinner.module';
 import {DataTablesModule } from 'angular-datatables';
+import { DeleteTransactionComponent } from './components/delete-transaction/delete-transaction.component';
+
+
+
 @NgModule({
   declarations: [
     ListTransactionsComponent,
     AddTransactionComponent,
+    DeleteTransactionComponent
   ],
   imports: [
     CommonModule,

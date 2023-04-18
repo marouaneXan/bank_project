@@ -16,6 +16,8 @@ export class ListTransactionsComponent implements OnDestroy {
   success: boolean = false;
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
+  modalDeleteTransaction: boolean = false
+  transactionSelected: any
 
   constructor(
     private transactionService: TransactionService,
@@ -39,8 +41,12 @@ export class ListTransactionsComponent implements OnDestroy {
       (e) => {this.error(e)}
     );
   }
+
   ngOnDestroy() {
     this.dtTrigger.unsubscribe();
+  }
+  togglemodalDeleteTransaction(): void {
+    this.modalDeleteTransaction = !this.modalDeleteTransaction
   }
   dtOption(){
     this.dtOptions = {
