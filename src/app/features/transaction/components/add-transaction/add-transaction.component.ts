@@ -48,7 +48,7 @@ export class AddTransactionComponent {
           this.loadingService.hide()
           this.transactionForm.reset()
           this.step++
-          this.downloadCsv(transactionForm.value)
+          // this.downloadCsv(transactionForm.value)
         },
         err => {
           console.log(err);
@@ -58,7 +58,6 @@ export class AddTransactionComponent {
         }
       )
     }
-    this.downloadCsv(transactionForm.value)
   }
   convertToCsv(data: any[]): string {
     const separator = ',';

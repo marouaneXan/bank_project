@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { TransactionService } from '../../services/transaction.service';
 import { LoadingService } from 'src/app/core/services/loading.service';
-import { Subject} from 'rxjs';
+import { Subject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -23,7 +23,7 @@ export class ListTransactionsComponent implements OnDestroy {
     private transactionService: TransactionService,
     private loadingService: LoadingService,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.dtOption()
@@ -31,14 +31,21 @@ export class ListTransactionsComponent implements OnDestroy {
   }
 
   getListTransaction(): void {
+    this.isLoading = true
+    this.loadingService.show()
     this.transactionService.getListTransaction().subscribe(
       (Transaction) => {
-        this.loading();
         this.listTransaction = Transaction;
+        this.isLoading = false
+        this.loadingService.hide()
         this.dtTrigger.next(this.listTransaction);
         this.hasLoaded();
       },
-      (e) => {this.error(e)}
+      (e) => {
+        this.isLoading = false
+        this.loadingService.hide()
+        this.error(e)
+      }
     );
   }
 
@@ -48,26 +55,18 @@ export class ListTransactionsComponent implements OnDestroy {
   togglemodalDeleteTransaction(): void {
     this.modalDeleteTransaction = !this.modalDeleteTransaction
   }
-  dtOption(){
+  dtOption() {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
       processing: true,
     };
   }
-  loading() {
-    this.isLoading = true;
-    this.loadingService.show();
-  }
   hasLoaded() {
-    this.isLoading = false;
     this.success = true;
-    this.loadingService.hide();
   }
-  error(error:any) {
-    this.isLoading = false;
+  error(error: any) {
     this.success = false;
-    this.loadingService.hide();
     this.toastr.error('Error: ' + error.message);
   }
 }

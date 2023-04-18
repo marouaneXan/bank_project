@@ -1,103 +1,74 @@
 <div class="flex justify-between ">
-    <h3 class="text-2xl font-bold">List of transactions</h3>
-    <button
-    routerLink="/admin/transactions/create"
-    class="px-4 py-2 text-xs font-medium text-white uppercase transition-all duration-150 ease-linear bg-blue-700 rounded shadow outline-none cursor-pointer hover:shadow-md focus:outline-none"
-    type="button"
-  >
-    <i class="fa-solid fa-plus"></i>
-    add transaction
-  </button>
+  <h3 class="text-2xl font-bold">List of transactions</h3>
+  <button routerLink="/admin/transactions/create"
+  class="px-4 py-2 text-xs font-medium text-white uppercase transition-all duration-150 ease-linear bg-blue-700 rounded shadow outline-none cursor-pointer hover:shadow-md focus:outline-none"
+  type="button">
+  <i class="fa-solid fa-plus"></i>
+  add transaction
+</button>
 </div>
-
 <div class="flex flex-col w-full min-w-0 mt-12 mb-6 break-words rounded shadow-lg bg-gray-50">
   <div class="py-3 mb-5 border-0 rounded-t">
-<app-delete-transaction [modalDeleteTransaction]="modalDeleteTransaction" [transactionSelected]="transactionSelected"
-  [togglemodalDeleteTransaction]="togglemodalDeleteTransaction"
-  (onDeleteTransaction)="getListTransaction()"></app-delete-transaction>
-<!-- <button routerLink="/admin/transactions/create"
+    <app-delete-transaction [modalDeleteTransaction]="modalDeleteTransaction"
+      [transactionSelected]="transactionSelected" [togglemodalDeleteTransaction]="togglemodalDeleteTransaction"
+      (onDeleteTransaction)="getListTransaction()"></app-delete-transaction>
+    <!-- <button routerLink="/admin/transactions/create"
   class="bg-blue-500 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
   type="button">
   <i class="fa-solid fa-plus"></i>
   add transaction
 </button> -->
-<div class="flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-gray-50 mt-5">
-  <div class="rounded-t py-3 border-0 mb-5">
-    <div class="flex flex-wrap items-center">
+    <div class="flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-gray-50 mt-5">
+      <div class="rounded-t py-3 border-0 mb-5">
+        <div class="flex flex-wrap items-center">
+        </div>
+      </div>
+      <div class="block w-full overflow-x-auto">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+        class="items-center w-full bg-transparent border-collapse">
+        <thead>
+            <tr>
+              <th
+                class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                destination account
+              </th>
+              <th
+                class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap">
+                amount
+              </th>
+              <th
+                class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                transaction date
+              </th>
+              <th
+                class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of listTransaction">
+              <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+                {{ transaction.destinationAccount }}
+              </td>
+              <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+                {{ transaction.sourceAccount }}
+              </td>
+              <td class="p-2 px-6 text-xs border-t-0 border-l-0 border-r-0 whitespace-nowrap">
+                {{ transaction.amount }}
+              </td>
+              <td class="space-x-2 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+                <i class="fa-solid fa-eye text-[14px] cursor-pointer"></i>
+                <i class="fa-solid fa-pen text-[14px] cursor-pointer"></i>
+                <i (click)="togglemodalDeleteTransaction();transactionSelected=transaction.id"
+                  class="fa-solid fa-trash text-[14px] cursor-pointer text-red-500"></i>
+              </td>
+            </tr>
+            <tr *ngIf="listTransaction.length === 0">
+              <td colspan="4" class="text-center p-4">No transactions available</td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
     </div>
-  </div>
-  <div class="block w-full overflow-x-auto">
-    <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="items-center w-full bg-transparent border-collapse">
-      <thead>
-        <tr>
-          <th
-            class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-          >
-            from
-          </th>
-          <th
-            class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-          >
-            to
-          </th>
-          <th
-            class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
-          >
-            amount
-          </th>
-        
-          <th
-            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-            destination account
-          </th>
-        
-          <th
-            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-            transaction date
-          </th>
-          <th
-            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-            actions
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr  *ngFor="let transaction of listTransaction">
-          <td
-           
-            class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2"
-          >
-            {{ transaction.fromId }}
-          </td>
-          <td
-            class="p-2 px-6 text-xs border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-          >
-            {{ transaction.toId }}
-          </td>
-          <td
-            class="p-2 px-6 text-xs border-t-0 border-l-0 border-r-0 whitespace-nowrap"
-          >
-            {{ transaction.amount }}
-          </td>
-             <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
-            {{ transaction.destinationAccount }}
-          </td>
-          <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
-            {{ transaction.sourceAccount }}
-          </td>
-          
-          <td class="space-x-2 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
-            <i class="fa-solid fa-eye text-[14px] cursor-pointer"></i>
-            <i class="fa-solid fa-pen text-[14px] cursor-pointer"></i>
-            <i (click)="togglemodalDeleteTransaction();transactionSelected=transaction.id"
-              class="fa-solid fa-trash text-[14px] cursor-pointer text-red-500"></i>
-          </td>
-        </tr>
-        <tr *ngIf="listTransaction.length === 0">
-          <td colspan="4" class="text-center p-4">No transactions available</td>
-        </tr>
-      </tbody>
-      
-    </table>
-  </div>
-</div>
