@@ -7,14 +7,22 @@ import { TransactionService } from '../../services/transaction.service';
   styleUrls: ['./list-transactions.component.css']
 })
 export class ListTransactionsComponent {
-  listTransaction:any;
+  listTransaction: any;
+  modalDeleteTransaction: boolean = false
+  transactionSelected: any
   constructor(private transactionService: TransactionService) { }
 
-ngOnInit():void{
-  this.transactionService.getListTransaction().subscribe((Transaction)=>{
-    this.listTransaction=Transaction
-  })
-}
- 
+  ngOnInit(): void {
+    this.getTransactions()
+  }
+  getTransactions() {
+    this.transactionService.getListTransaction().subscribe((Transaction) => {
+      this.listTransaction = Transaction
+    })
+  }
+  togglemodalDeleteTransaction(): void {
+    this.modalDeleteTransaction = !this.modalDeleteTransaction
+  }
+
 }
 

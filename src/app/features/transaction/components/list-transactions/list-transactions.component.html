@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="flex justify-between ">
     <h3 class="text-2xl font-bold">List of transactions</h3>
     <button
@@ -14,6 +15,19 @@
   class="flex flex-col w-full min-w-0 mt-12 mb-6 break-words rounded shadow-lg bg-gray-50"
 >
   <div class="py-3 mb-5 border-0 rounded-t">
+=======
+<app-delete-transaction [modalDeleteTransaction]="modalDeleteTransaction" [transactionSelected]="transactionSelected"
+  [togglemodalDeleteTransaction]="togglemodalDeleteTransaction"
+  (onDeleteTransaction)="getTransactions()"></app-delete-transaction>
+<button routerLink="/admin/transactions/create"
+  class="bg-blue-500 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+  type="button">
+  <i class="fa-solid fa-plus"></i>
+  add transaction
+</button>
+<div class="flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-gray-50 mt-5">
+  <div class="rounded-t py-3 border-0 mb-5">
+>>>>>>> 2a1a749d5ed9272b452bf6412eaaae28d249cb80
     <div class="flex flex-wrap items-center">
     </div>
   </div>
@@ -22,6 +36,7 @@
       <thead>
         <tr>
           <th
+<<<<<<< HEAD
             class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
           >
             from
@@ -40,10 +55,31 @@
             class="px-6 py-3 text-xs font-semibold text-left uppercase align-middle border border-l-0 border-r-0 border-solid whitespace-nowrap"
           >
             Actions
+=======
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            source account
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            destination account
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            amount
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            transaction date
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+            actions
+>>>>>>> 2a1a749d5ed9272b452bf6412eaaae28d249cb80
           </th>
         </tr>
       </thead>
       <tbody>
+<<<<<<< HEAD
         <tr  *ngFor="let transaction of listTransaction">
           <td
 
@@ -65,6 +101,26 @@
             class="p-2 px-6 space-x-2 text-xs border-t-0 border-l-0 border-r-0 whitespace-nowrap"
           >
             see more
+=======
+        <tr *ngFor="let transaction of listTransaction">
+          <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+            {{ transaction.sourceAccount }}
+          </td>
+          <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+            {{ transaction.destinationAccount }}
+          </td>
+          <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+            {{ transaction.amount }}
+          </td>
+          <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+            12-12-2023
+          </td>
+          <td class="space-x-2 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
+            <i class="fa-solid fa-eye text-[14px] cursor-pointer"></i>
+            <i class="fa-solid fa-pen text-[14px] cursor-pointer"></i>
+            <i (click)="togglemodalDeleteTransaction();transactionSelected=transaction.id"
+              class="fa-solid fa-trash text-[14px] cursor-pointer text-red-500"></i>
+>>>>>>> 2a1a749d5ed9272b452bf6412eaaae28d249cb80
           </td>
         </tr>
       </tbody>

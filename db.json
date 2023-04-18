@@ -1,6 +1,7 @@
 {
   "transactions": [
     {
+<<<<<<< HEAD
       "fromId": "Doloremque natus bla",
       "toId": "Praesentium et quia ",
       "amount": 7,
@@ -59,6 +60,13 @@
       "toId": "Molestiae recusandae",
       "amount": 56,
       "id": 10
+=======
+      "sourceAccount": "Aute velit ut sit be",
+      "destinationAccount": "Minim quia et est q",
+      "agentId": "1",
+      "amount": 54,
+      "id": 5
+>>>>>>> 2a1a749d5ed9272b452bf6412eaaae28d249cb80
     }
   ]
 }
