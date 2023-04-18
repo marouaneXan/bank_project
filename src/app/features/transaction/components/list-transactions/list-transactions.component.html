@@ -1,3 +1,6 @@
+<app-delete-transaction [modalDeleteTransaction]="modalDeleteTransaction" [transactionSelected]="transactionSelected"
+  [togglemodalDeleteTransaction]="togglemodalDeleteTransaction"
+  (onDeleteTransaction)="getTransactions()"></app-delete-transaction>
 <button routerLink="/admin/transactions/create"
   class="bg-blue-500 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
   type="button">
@@ -55,7 +58,8 @@
           <td class="space-x-2 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
             <i class="fa-solid fa-eye text-[14px] cursor-pointer"></i>
             <i class="fa-solid fa-pen text-[14px] cursor-pointer"></i>
-            <i class="fa-solid fa-trash text-[14px] cursor-pointer text-red-500"></i>
+            <i (click)="togglemodalDeleteTransaction();transactionSelected=transaction.id"
+              class="fa-solid fa-trash text-[14px] cursor-pointer text-red-500"></i>
           </td>
         </tr>
       </tbody>
