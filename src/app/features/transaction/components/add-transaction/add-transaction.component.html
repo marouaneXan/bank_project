@@ -58,16 +58,16 @@
         <div *ngIf="step===0" class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900">
-                    From
+                    Source Account
                 </label>
-                <input formControlName="fromId" type="text" placeholder="From client"
+                <input formControlName="sourceAccount" type="text" placeholder="Source Account"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900">
-                    To
+                    Destination Account
                 </label>
-                <input formControlName="toId" type="text" placeholder="To client"
+                <input formControlName="destinationAccount" type="text" placeholder="Destination Account"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
             </div>
             <div class="col-span-6 sm:col-span-3">
