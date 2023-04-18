@@ -1,28 +1,11 @@
 {
   "transactions": [
     {
-      "fromId": "Doloremque natus bla",
-      "toId": "Praesentium et quia ",
-      "amount": 7,
-      "id": 1
-    },
-    {
-      "fromId": "Velit quasi voluptat",
-      "toId": "Error autem voluptat",
-      "amount": 87,
-      "id": 2
-    },
-    {
-      "fromId": "Nihil mollit in vero",
-      "toId": "Nesciunt ut quos to",
-      "amount": 10,
-      "id": 3
-    },
-    {
-      "fromId": "test",
-      "toId": "Possimus consequat",
-      "amount": 23,
-      "id": 4
+      "sourceAccount": "Aute velit ut sit be",
+      "destinationAccount": "Minim quia et est q",
+      "agentId": "1",
+      "amount": 54,
+      "id": 5
     }
   ]
 }

@@ -16,13 +16,14 @@ export class AddTransactionComponent {
   success: boolean = false
   constructor(private toastr: ToastrService, private transactionService: TransactionService, private loadingService: LoadingService) { }
   transactionForm = new FormGroup({
-    fromId: new FormControl(null, [Validators.required]),
-    toId: new FormControl(null, [Validators.required]),
+    sourceAccount: new FormControl(null, [Validators.required]),
+    destinationAccount: new FormControl(null, [Validators.required]),
+    agentId: new FormControl(localStorage.getItem('agent_id'), [Validators.required]),
     amount: new FormControl(null, [Validators.required]),
   })
   nextStep() {
     const { value }: FormGroup = this.transactionForm;
-    const fields = ['fromId', 'toId', 'amount'];
+    const fields = ['sourceAccount', 'destinationAccount', 'amount', 'agentId'];
 
     if (fields.some(field => !value[field])) {
       this.toastr.warning('Please add all fields');
