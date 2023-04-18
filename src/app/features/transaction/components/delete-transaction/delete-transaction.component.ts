@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-delete-transaction',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./delete-transaction.component.css']
 })
 export class DeleteTransactionComponent {
-
+  @Input() modalDeleteTransaction: boolean = false
+  @Input() togglemodalDeleteTransaction = (): void => { }
+  @Input() transactionSelected: any
 }
