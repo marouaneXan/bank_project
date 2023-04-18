@@ -1,15 +1,15 @@
-<div class="flex flex-col md:space-y-8">
-    <div class="flex justify-between items-start p-4 rounded-t border-b">
-        <h3 class="text-xl font-medium">Make transaction</h3>
+<div class="flex flex-col md:space-y-8 w-[85%] mx-auto">
+    <div class="flex items-start justify-between py-4 -ml-10 capitalize border-b rounded-t">
+        <h3 class="text-2xl font-bold">Make transaction</h3>
     </div>
-    <ol class="items-center w-full justify-center space-y-4 sm:flex sm:space-x-28 sm:space-y-0">
+    <ol class="items-center justify-between w-full space-y-4 sm:flex sm:space-x-28 sm:space-y-0">
         <li class="flex items-center text-gray-500 space-x-2.5" [ngClass]="{
-            'text-blue-600 dark:text-blue-500':step===0
+            'text-blue-700 dark:text-blue-700':step===0
         }">
             <span [ngClass]="{
-                'text-blue-600':step===0,
-                'dark:border-blue-500':step===0
-            }" class="flex items-center justify-center border-gray-500 w-8 h-8 border rounded-full shrink-0">
+                'text-blue-700':step===0,
+                'dark:border-blue-700':step===0
+            }" class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0">
                 1
             </span>
             <span>
@@ -27,7 +27,7 @@
             <span [ngClass]="{
                 'text-blue-600':step===1,
                 'dark:border-blue-500':step===1
-            }" class="flex items-center justify-center border-gray-500 w-8 h-8 border rounded-full shrink-0">
+            }" class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0">
                 2
             </span>
             <span>
@@ -45,7 +45,7 @@
             <span [ngClass]="{
                 'text-blue-600':step===2,
                 'dark:border-blue-500':step===2
-            }" class="flex items-center justify-center border-gray-500 w-8 h-8 border rounded-full shrink-0">
+            }" class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0">
                 3
             </span>
             <span>
@@ -54,36 +54,46 @@
         </li>
     </ol>
 
-    <form class="px-6 py-2 space-y-2" [formGroup]="transactionForm">
+    <form class="py-2 space-y-2" [formGroup]="transactionForm">
         <div *ngIf="step===0" class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900">
                     Source Account
                 </label>
+<<<<<<< HEAD
+                <input formControlName="fromId" type="text" placeholder="From client"
+                    class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:outline-none focus:border-indigo-700" />
+=======
                 <input formControlName="sourceAccount" type="text" placeholder="Source Account"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
+>>>>>>> 2a1a749d5ed9272b452bf6412eaaae28d249cb80
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900">
                     Destination Account
                 </label>
+<<<<<<< HEAD
+                <input formControlName="toId" type="text" placeholder="To client"
+                    class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:outline-none focus:border-indigo-700" />
+=======
                 <input formControlName="destinationAccount" type="text" placeholder="Destination Account"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
+>>>>>>> 2a1a749d5ed9272b452bf6412eaaae28d249cb80
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900">
                     Amount
                 </label>
                 <input formControlName="amount" type="number" placeholder="Amount"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2" />
+                    class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:outline-none focus:border-indigo-700" />
             </div>
         </div>
         <div class="" *ngIf="step===1">
             Review transaction
         </div>
-        <div *ngIf="step===2 && success" class="flex justify-center items-center w-full">
-            <div class="p-4 w-full max-w-md">
-                <div class="p-4 text-center bg-white rounded-lg shadow  sm:p-5">
+        <div *ngIf="step===2 && success" class="flex items-center justify-center w-full">
+            <div class="w-full max-w-md p-4">
+                <div class="p-4 text-center bg-white rounded-lg shadow sm:p-5">
                     <div
                         class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 p-2 flex items-center justify-center mx-auto mb-3.5">
                         <svg aria-hidden="true" class="w-8 h-8 text-white success-icon" fill="currentColor"
@@ -96,7 +106,7 @@
                     </div>
                     <p class="mb-4 text-lg font-semibold text-gray-600 success-text">Successfully transaction.</p>
                     <button routerLink="/admin/transactions"
-                        class="bg-blue-600 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                        class="px-4 py-2 mr-1 text-xs font-medium text-white uppercase transition-all duration-150 ease-linear bg-blue-600 rounded shadow outline-none cursor-pointer hover:shadow-md focus:outline-none"
                         type="button">
                         Continu
                     </button>
@@ -104,24 +114,24 @@
             </div>
         </div>
     </form>
-    <div class="p-6 rounded-b border-t border-gray-200 d-flex justify-content-between">
+    <div class="border-t border-gray-200 rounded-b d-flex justify-content-between">
         <button *ngIf="step==1" (click)="previousStep()"
-            class="cursor-pointer text-gray-500 border-blue-400 font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 border border-blue"
+            class="px-4 py-2 mr-1 text-xs font-medium text-gray-500 uppercase transition-all duration-150 ease-linear border border-blue-200 rounded shadow outline-none cursor-pointer hover:shadow-md focus:outline-none border-blue"
             type="button">
             back
         </button>
         <button *ngIf="step===1" (click)="makeTransaction(transactionForm)" [disabled]="isLoading"
-            class="bg-blue-600 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            class="px-4 py-2 mr-1 text-xs font-medium text-white uppercase transition-all duration-150 ease-linear bg-blue-800 rounded shadow outline-none cursor-pointer hover:shadow-md focus:outline-none"
             [ngClass]="{
                 'bg-gray-400':isLoading,
             }" type="button">
-            <div class="flex gap-2 items-center">
+            <div class="flex items-center gap-2">
                 {{isLoading ? 'loading':'submit'}}
                 <app-spinner *ngIf="isLoading" [props]="{width:'22px',height:'22px'}"></app-spinner>
             </div>
         </button>
         <button *ngIf="step===0" (click)="nextStep()"
-            class="bg-blue-600 cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            class="px-4 py-2 mr-1 text-xs font-medium text-white uppercase transition-all duration-150 ease-linear bg-blue-700 rounded shadow outline-none cursor-pointer hover:shadow-md focus:outline-none"
             type="button">
             next
         </button>

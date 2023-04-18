@@ -2,15 +2,18 @@
     <app-navbar></app-navbar>
 </div>
 
-<div style="min-height: 700px" class="z-10 hidden h-full p-5 shadow w-60 lg:relative bg-gray-50 lg:block">
+<div style="min-height: 700px" class="z-10 hidden h-full p-5 shadow bg-gray-50 w-60 lg:relative lg:block">
 
-    <div class="fixed top-0 z-20 flex flex-col items-start h-full gap-10 pt-4 w-60 bg-gray-50">
-        <a routerLink="/admin" class="text-2xl font-bold text-gray-800 cursor-pointer">Bank Project</a>
-        <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+    <div class="fixed top-0 z-20 flex flex-col items-start h-full pt-4 w-60 bg-gray-50">
+        <a routerLink="/admin" class="text-2xl font-bold text-gray-800 cursor-pointer">Bank
+          <span class="text-blue-800">Project</span>
+        </a>
+
+        <ul class="flex flex-col gap-6 my-auto list-none md:flex-col md:min-w-full">
             <li *ngFor="let link of sidebarLinks; let i = index" class="items-center">
-                <a [routerLink]="[link.path]" class="text-xs uppercase py-3 font-bold block" routerLinkActive
+                <a [routerLink]="[link.path]" class="block py-3 text-sm uppercase" routerLinkActive
                     #activeLink="routerLinkActive"
-                    [ngClass]="i === activeLinkIndex ? 'text-red-600 hover:text-red-700' : 'text-blueGray-700 hover:text-blue-500'"
+                    [ngClass]="i === activeLinkIndex ? ' ml-auto text-blue-800 capitalize border-l-4 border-blue-800 pl-2 ' : 'text-gray-600 capitalize hover:text-blue-800'"
                     (click)="setActiveLink(i)">
                     <i class="mr-2 text-sm" [class]="link.icon"
                         [ngClass]="i === activeLinkIndex ? 'opacity-75' : 'text-blueGray-300'"></i>
@@ -18,6 +21,7 @@
                 </a>
             </li>
         </ul>
+
     </div>
 
 </div>
