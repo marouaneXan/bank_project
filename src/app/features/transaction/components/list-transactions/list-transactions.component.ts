@@ -13,6 +13,9 @@ export class ListTransactionsComponent {
   constructor(private transactionService: TransactionService) { }
 
   ngOnInit(): void {
+    this.getTransactions()
+  }
+  getTransactions() {
     this.transactionService.getListTransaction().subscribe((Transaction) => {
       this.listTransaction = Transaction
     })
