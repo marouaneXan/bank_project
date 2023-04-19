@@ -7,7 +7,7 @@ import { Component,Input  } from '@angular/core';
 })
 export class GlobalModalComponent {
   @Input() title: string="";
-  @Input() transactionModal: any=[];
+  @Input() children: any;
   showModal = false;
   toggleModal(){
     this.showModal = !this.showModal;

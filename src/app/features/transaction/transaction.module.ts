@@ -10,13 +10,15 @@ import { SpinnerModule } from '../spinner/spinner.module';
 import {DataTablesModule } from 'angular-datatables';
 import { DeleteTransactionComponent } from './components/delete-transaction/delete-transaction.component';
 import { GlobalModalComponent } from '../global-modal/global-modal.component';
+import { ViewTransactionComponent } from './components/view-transaction/view-transaction.component';
 
 @NgModule({
   declarations: [
     ListTransactionsComponent,
     AddTransactionComponent,
     DeleteTransactionComponent,
-    GlobalModalComponent
+    GlobalModalComponent,
+    ViewTransactionComponent
     ],
   imports: [
     CommonModule,

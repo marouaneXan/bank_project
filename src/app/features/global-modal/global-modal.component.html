@@ -26,42 +26,7 @@
           </span>
         </button>
       </div>
-      <div class="relative p-6 flex-auto">
-        <div class="bg-white p-3 shadow-sm rounded-sm">
-          <div class="text-gray-700">
-            <div class="grid md:grid-cols-2 text-sm">
-              <div class="grid grid-cols-2">
-                <div class="px-4 py-2 font-semibold">Source Account</div>
-                <div class="px-4 py-2">
-                  {{ transactionModal.sourceAccount }}
-                </div>
-              </div>
-              <div class="grid grid-cols-2">
-                <div class="px-4 py-2 font-semibold">Destination Account</div>
-                <div class="px-4 py-2">
-                  {{ transactionModal.destinationAccount }}
-                </div>
-              </div>
-              <div class="grid grid-cols-2">
-                <div class="px-4 py-2 font-semibold">Amount</div>
-                <div class="px-4 py-2">{{ transactionModal.amount }}</div>
-              </div>
-              <div class="grid grid-cols-2">
-                <div class="px-4 py-2 font-semibold">Agent</div>
-                <div class="px-4 py-2">{{ transactionModal.agentId }}</div>
-              </div>
-              <div class="grid grid-cols-2">
-                <div class="px-4 py-2 font-semibold">From</div>
-                <div class="px-4 py-2">{{ transactionModal.fromId }}</div>
-              </div>
-              <div class="grid grid-cols-2">
-                <div class="px-4 py-2 font-semibold">to</div>
-                <div class="px-4 py-2">{{ transactionModal.toId }}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ng-content></ng-content>
       <div
         class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b"
       >

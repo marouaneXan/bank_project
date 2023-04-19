@@ -78,7 +78,7 @@
           </td>
           
           <td class="space-x-2 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
-            <app-global-modal [title]="'Transactions'" [transactionModal]="transaction" ></app-global-modal>
+            <app-view-transaction [transactionData]="transaction"></app-view-transaction>
             <i class="fa-solid fa-pen text-[14px] cursor-pointer"></i>
             <i (click)="togglemodalDeleteTransaction();transactionSelected=transaction.id"
               class="fa-solid fa-trash text-[14px] cursor-pointer text-red-500"></i>
