@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { PageNotFoundComponent } from './features/page-not-found/page-not-found.component';
 // import { GlobalModalComponent } from './features/global-modal/global-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PageNotFoundComponent,
     // GlobalModalComponent,
   ],
   imports: [
