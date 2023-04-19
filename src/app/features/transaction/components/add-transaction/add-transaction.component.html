@@ -110,11 +110,11 @@
             type="button">
             back
         </button>
-        <button *ngIf="step===1" (click)="makeTransaction(transactionForm)" [disabled]="isLoading"
+        <button [ngClass]="{
+            'bg-gray-400':isLoading,
+        }" *ngIf="step===1" (click)="makeTransaction(transactionForm)" [disabled]="isLoading"
             class="px-4 py-2 mr-1 text-xs font-medium text-white uppercase transition-all duration-150 ease-linear bg-blue-800 rounded shadow outline-none cursor-pointer hover:shadow-md focus:outline-none"
-            [ngClass]="{
-                'bg-gray-400':isLoading,
-            }" type="button">
+            type="button">
             <div class="flex items-center gap-2">
                 {{isLoading ? 'loading':'submit'}}
                 <app-spinner *ngIf="isLoading" [props]="{width:'22px',height:'22px'}"></app-spinner>
