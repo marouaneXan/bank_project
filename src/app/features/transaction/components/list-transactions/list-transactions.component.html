@@ -12,13 +12,13 @@
     <app-delete-transaction [modalDeleteTransaction]="modalDeleteTransaction"
       [transactionSelected]="transactionSelected" [togglemodalDeleteTransaction]="togglemodalDeleteTransaction"
       (onDeleteTransaction)="getListTransaction()"></app-delete-transaction>
-<div class="flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-gray-50 mt-5">
+<div class="flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-gray-50 mt-5 px-5">
   <div class="rounded-t py-3 border-0 mb-5">
     <div class="flex flex-wrap items-center">
     </div>
   </div>
-  <div class="block w-full overflow-x-auto">
-    <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="items-center w-full bg-transparent border-collapse">
+  <div class="block w-full overflow-x-auto px-1">
+    <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="items-center w-full bg-transparent border-collapse py-5">
       <thead>
         <tr>
           <th
@@ -78,12 +78,7 @@
           </td>
           
           <td class="space-x-2 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
-            <app-global-modal [title]="'Transactions'" 
-            [sourceAccount]= "transaction.sourceAccount"
-            [amount]= "transaction.amount" 
-            [agentId]="transaction.sourceAccount"
-            [destinationAccount]="transaction.destinationAccount"
-            ></app-global-modal>
+            <app-global-modal [title]="'Transactions'" [transactionModal]="transaction" ></app-global-modal>
             <i class="fa-solid fa-pen text-[14px] cursor-pointer"></i>
             <i (click)="togglemodalDeleteTransaction();transactionSelected=transaction.id"
               class="fa-solid fa-trash text-[14px] cursor-pointer text-red-500"></i>

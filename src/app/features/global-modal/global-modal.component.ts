@@ -6,11 +6,8 @@ import { Component,Input  } from '@angular/core';
   styleUrls: ['./global-modal.component.css']
 })
 export class GlobalModalComponent {
-  @Input() sourceAccount: string="";
-  @Input() destinationAccount: string="";  
-  @Input() amount: string="";
-  @Input() agentId: string="";
   @Input() title: string="";
+  @Input() transactionModal: any=[];
   showModal = false;
   toggleModal(){
     this.showModal = !this.showModal;
