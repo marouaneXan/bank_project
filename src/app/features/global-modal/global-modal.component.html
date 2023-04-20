@@ -1,7 +1,4 @@
-<i
-  class="fa-solid fa-eye text-[14px] cursor-pointer"
-  (click)="toggleModal()"
-></i>
+<i class="{{ icon }}" (click)="toggleModal()"></i>
 
 <div
   *ngIf="showModal"
@@ -16,28 +13,16 @@
       >
         <h3 class="text-3xl font-semibold">{{ title }}</h3>
         <button
-          class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+          class="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
           (click)="toggleModal()"
         >
-          <span
-            class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none"
-          >
-            ×
-          </span>
+          <span>×</span>
         </button>
       </div>
       <ng-content></ng-content>
       <div
         class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b"
-      >
-        <button
-          class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          type="button"
-          (click)="toggleModal()"
-        >
-          Close
-        </button>
-      </div>
+      ></div>
     </div>
   </div>
 </div>

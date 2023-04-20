@@ -8,6 +8,7 @@ import { Component,Input  } from '@angular/core';
 export class GlobalModalComponent {
   @Input() title: string="";
   @Input() children: any;
+  @Input() icon: any;
   showModal = false;
   toggleModal(){
     this.showModal = !this.showModal;

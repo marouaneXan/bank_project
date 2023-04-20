@@ -11,6 +11,7 @@ import {DataTablesModule } from 'angular-datatables';
 import { DeleteTransactionComponent } from './components/delete-transaction/delete-transaction.component';
 import { GlobalModalComponent } from '../global-modal/global-modal.component';
 import { ViewTransactionComponent } from './components/view-transaction/view-transaction.component';
+import { ModifierTransactionComponent } from './components/modifier-transaction/modifier-transaction.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ViewTransactionComponent } from './components/view-transaction/view-tra
     AddTransactionComponent,
     DeleteTransactionComponent,
     GlobalModalComponent,
-    ViewTransactionComponent
+    ViewTransactionComponent,
+    ModifierTransactionComponent
     ],
   imports: [
     CommonModule,

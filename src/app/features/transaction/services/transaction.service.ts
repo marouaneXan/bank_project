@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, throwError } from 'rxjs';
+import { catchError, throwError, map } from 'rxjs';
 import { Transaction } from '../interface/transaction';
 
 @Injectable({
@@ -30,5 +30,14 @@ export class TransactionService {
         return throwError('Error on deleting transaction');
       })
     );
+  }
+  updateTransaction(transaction_id: string, data: any) {
+    return this.http
+      .put(`${this.endpoint}/transactions/${transaction_id}`, data)
+      .pipe(
+        map(() => {
+          return true;
+        })
+      );
   }
 }
