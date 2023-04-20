@@ -12,10 +12,7 @@ export class ModifierTransactionComponent {
   @Input() title: string = '';
   @Input() transactionData: any = [];
   editform!: FormGroup;
-  constructor(
-    private transactionService: TransactionService,
-    private toastr: ToastrService
-  ) {}
+  constructor(private transactionService: TransactionService,private toastr: ToastrService ) {}
   ngOnInit(): void {
     this.editform = new FormGroup({
       sourceAccount: new FormControl('', [Validators.required]),
@@ -31,14 +28,11 @@ export class ModifierTransactionComponent {
   submit() {
     this.transactionService.updateTransaction(this.transactionData.id, this.editform.value)
     .subscribe(
-      (success) => {
-        console.log();
+      () => {
         this.toastr.success("Post updated successfully!")
       },
       (error) => {
-        console.log(error);
         this.toastr.error(error)
-
       }
     );
     }
