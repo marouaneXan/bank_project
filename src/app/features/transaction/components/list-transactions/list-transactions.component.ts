@@ -4,7 +4,6 @@ import { LoadingService } from 'src/app/core/services/loading.service';
 import { Subject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
   selector: 'app-list-transactions',
   templateUrl: './list-transactions.component.html',
@@ -16,30 +15,30 @@ export class ListTransactionsComponent implements OnDestroy {
   success: boolean = false;
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
-  modalDeleteTransaction: boolean = false
-  transactionSelected: any
+  modalDeleteTransaction: boolean = false;
+  transactionSelected: any;
 
   constructor(
     private transactionService: TransactionService,
     private loadingService: LoadingService,
     private toastr: ToastrService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.dtOption()
+    this.dtOption();
     this.getListTransaction();
   }
 
   getListTransaction(): void {
     this.transactionService.getListTransaction().subscribe(
       (Transaction) => {
-        this.loading()
+        this.loading();
         this.listTransaction = Transaction;
         this.dtTrigger.next(this.listTransaction);
         this.hasLoaded();
       },
       (e) => {
-        this.error(e)
+        this.error(e);
       }
     );
   }
@@ -48,12 +47,11 @@ export class ListTransactionsComponent implements OnDestroy {
     this.dtTrigger.unsubscribe();
   }
   togglemodalDeleteTransaction(): void {
-    this.modalDeleteTransaction = !this.modalDeleteTransaction
+    this.modalDeleteTransaction = !this.modalDeleteTransaction;
   }
   dtOption() {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 5,
       processing: true,
     };
   }
