@@ -5,7 +5,7 @@ import { AuthDeactivateGuard } from './core/guards/auth-deactivate.guard'
 const routes: Routes = [
     {
         path: 'auth',
-        canActivate: [AuthDeactivateGuard], 
+        // canActivate: [AuthDeactivateGuard],
         children: [
             { path: '', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) }
         ],
@@ -16,6 +16,11 @@ const routes: Routes = [
         children: [
             { path: '', loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule) }
         ],
+    },
+    {
+        path: '**',
+        redirectTo: "auth/sign-in",
+        pathMatch: 'full'
     },
 ]
 

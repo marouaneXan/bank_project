@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -19,7 +19,8 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-     HttpClientModule
+     HttpClientModule,
+     OAuthModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

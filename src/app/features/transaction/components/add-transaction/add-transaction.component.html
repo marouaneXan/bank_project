@@ -79,7 +79,17 @@
             </div>
         </div>
         <div class="" *ngIf="step===1">
-            Review transaction
+            <ul class="max-w-md space-y-1  list-disc list-inside">
+                <li>
+                    Source Account: {{ transactionForm.get('sourceAccount')?.value }}
+                </li>
+                <li>
+                    Destination Account: {{ transactionForm.get('destinationAccount')?.value }}
+                </li>
+                <li>
+                    Amount: {{ transactionForm.get('amount')?.value }}
+                </li>
+            </ul>
         </div>
         <div *ngIf="step===2 && success" class="flex items-center justify-center w-full">
             <div class="w-full max-w-md p-4">

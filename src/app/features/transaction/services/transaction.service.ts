@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { Transaction } from '../interface/transaction';
 
@@ -9,8 +9,9 @@ import { Transaction } from '../interface/transaction';
 export class TransactionService {
   private endpoint = "http://localhost:3000"
   constructor(private http: HttpClient) { }
-  addTransaction(data: Transaction) {
-    return this.http.post(this.endpoint + '/transactions', data).pipe(
+  addTransaction(data: any) {
+    data["agentId"] = "123"
+    return this.http.post("https://eai-api.serveo.net/api/virements", data).pipe(
       catchError((error: any) => {
         return throwError('Error on making new transaction');
       })
@@ -18,17 +19,23 @@ export class TransactionService {
   }
   getListTransaction() {
     try {
-      return this.http.get(`${this.endpoint}/transactions`)
+      return this.http.get(`https://eai-api.serveo.net/api/virements`)
     } catch (error) {
       return throwError(error);
 
     }
   }
   deleteTransaction(transaction_id: string) {
-    return this.http.delete(`${this.endpoint}/transactions/${transaction_id}`).pipe(
+    return this.http.delete(`https://eai-api.serveo.net/api/virements/${transaction_id}`).pipe(
       catchError((error: any) => {
         return throwError('Error on deleting transaction');
       })
     );
+  }
+  serverUpDown() {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('access_token')}`);
+    return this.http.get('https://bff.serveo.net/actuator/health', {
+      headers
+    })
   }
 }

@@ -18,12 +18,11 @@ export class AddTransactionComponent {
   transactionForm = new FormGroup({
     sourceAccount: new FormControl(null, [Validators.required]),
     destinationAccount: new FormControl(null, [Validators.required]),
-    agentId: new FormControl(localStorage.getItem('agent_id'), [Validators.required]),
     amount: new FormControl(null, [Validators.required]),
   })
   nextStep() {
     const { value }: FormGroup = this.transactionForm;
-    const fields = ['sourceAccount', 'destinationAccount', 'amount', 'agentId'];
+    const fields = ['sourceAccount', 'destinationAccount', 'amount'];
 
     if (fields.some(field => !value[field])) {
       this.toastr.warning('Please add all fields');
@@ -51,7 +50,7 @@ export class AddTransactionComponent {
           // this.downloadCsv(transactionForm.value)
         },
         err => {
-          console.log(err);
+          this.toastr.error(err);
           this.isLoading = false
           this.success = false
           this.loadingService.hide()
