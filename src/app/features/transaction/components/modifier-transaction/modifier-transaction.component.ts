@@ -29,15 +29,17 @@ export class ModifierTransactionComponent {
     return this.editform.controls;
   }
   submit() {
-    try {
-      this.transactionService.updateTransaction(
-        this.transactionData.id,
-        this.editform.value
-      )
-        ? console.log('Post updated successfully!')
-        : console.log('error');
-    } catch (error) {
-      console.log(error);
+    this.transactionService.updateTransaction(this.transactionData.id, this.editform.value)
+    .subscribe(
+      (success) => {
+        console.log();
+        this.toastr.success("Post updated successfully!")
+      },
+      (error) => {
+        console.log(error);
+        this.toastr.error(error)
+
+      }
+    );
     }
-  }
 }
