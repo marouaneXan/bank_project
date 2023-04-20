@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OAuthService, OAuthModule } from 'angular-oauth2-oidc';
-import { authConfig } from 'src/app/sso-config';
-import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
+import { OAuthService} from 'angular-oauth2-oidc';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -9,7 +7,11 @@ import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
 })
 
 export class SignInComponent implements OnInit {
-
+  constructor(private oauthService: OAuthService) {}
   ngOnInit(): void {
-  }
+   this.login();
+   }
+    login(): void {
+      this.oauthService.initCodeFlow();
+    }
 }
