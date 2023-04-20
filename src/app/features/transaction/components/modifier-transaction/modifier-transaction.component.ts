@@ -11,12 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class ModifierTransactionComponent {
   @Input() title: string = '';
   @Input() transactionData: any = [];
-  showModal = false;
-  toggleModal(){
-    this.showModal = false;
-  }
   editform!: FormGroup;
-
   constructor(
     private transactionService: TransactionService,
     private toastr: ToastrService
@@ -25,26 +20,24 @@ export class ModifierTransactionComponent {
     this.editform = new FormGroup({
       sourceAccount: new FormControl('', [Validators.required]),
       destinationAccount: new FormControl('', [Validators.required]),
-      amount: new FormControl("", [Validators.required]),
-      fromId: new FormControl("", [Validators.required]),
-      toId: new FormControl("", [Validators.required]),
+      amount: new FormControl('', [Validators.required]),
+      fromId: new FormControl('', [Validators.required]),
+      toId: new FormControl('', [Validators.required]),
     });
-        console.log(this.editform.value)
-
   }
-  get f(){
+  get f() {
     return this.editform.controls;
   }
-  submit(){
-
-try {
-
-  this.transactionService.updateTransaction(this.transactionData.id,this.editform.value)?console.log("Post updated successfully!"):console.log("error")
-  this.toggleModal()
-} catch (error) {
-  console.log(error)
-}
-
-
-}
+  submit() {
+    try {
+      this.transactionService.updateTransaction(
+        this.transactionData.id,
+        this.editform.value
+      )
+        ? console.log('Post updated successfully!')
+        : console.log('error');
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }

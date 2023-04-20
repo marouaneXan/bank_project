@@ -16,6 +16,9 @@
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2"
             [(ngModel)]="transactionData.sourceAccount"
           />
+          <div *ngIf="f['sourceAccount'].touched && f['sourceAccount'].invalid" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div *ngIf="f['sourceAccount'].errors && f['sourceAccount'].errors['required']" class="text-sm"> Source Account is required.</div>
+          </div>
         </div>
 
         <div class="col-span-6 sm:col-span-6">
@@ -29,6 +32,9 @@
             [(ngModel)]="transactionData.destinationAccount"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2"
           />
+          <div *ngIf="f['destinationAccount'].touched && f['destinationAccount'].invalid" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div *ngIf="f['destinationAccount'].errors && f['destinationAccount'].errors['required']" class="text-sm">Destination is required.</div>
+          </div>
         </div>
         <div class="col-span-3 sm:col-span-6">
           <label class="block mb-2 text-sm font-medium text-gray-900">
@@ -42,6 +48,10 @@
             class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:outline-none focus:border-indigo-700"
             min="0"
           />
+          <div *ngIf="f['amount'].touched && f['amount'].invalid" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div *ngIf="f['amount'].errors && f['amount'].errors['required']" class="text-sm"> amount is required.</div>
+          </div>
+          
         </div>
         <div class="col-span-3 sm:col-span-6">
           <label class="block mb-2 text-sm font-medium text-gray-900">
@@ -54,6 +64,9 @@
             [(ngModel)]="transactionData.fromId"
             class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:outline-none focus:border-indigo-700"
           />
+          <div *ngIf="f['fromId'].touched && f['fromId'].invalid" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div *ngIf="f['fromId'].errors && f['fromId'].errors['required']" class="text-sm"> is required.</div>
+          </div>
         </div>
       </div>
       <div class="col-span-6 sm:col-span-6">
@@ -65,6 +78,9 @@
           [(ngModel)]="transactionData.toId"
           class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:outline-none focus:border-indigo-700"
         />
+        <div *ngIf="f['toId'].touched && f['toId'].invalid" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div *ngIf="f['toId'].errors && f['toId'].errors['required']" class="text-sm"> TO is required.</div>
+          </div>
       </div>
       <div
       class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b"
