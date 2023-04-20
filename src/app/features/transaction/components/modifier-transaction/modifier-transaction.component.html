@@ -1,0 +1,95 @@
+<app-global-modal
+  [title]="'Modifier Transaction'"
+  [icon]="'fa-solid fa-pen text-[14px] cursor-pointer'"
+>
+  <div class="flex flex-col md:space-y-8 w-[100%] px-5">
+    <form class="py-2 space-y-2" [formGroup]="editform" (ngSubmit)="submit()">
+      <div class="grid grid-cols-12 gap-12">
+        <div class="col-span-6 sm:col-span-6">
+          <label class="block mb-2 text-sm font-medium text-gray-900">
+            Source Account
+          </label>
+          <input
+            formControlName="sourceAccount"
+            type="text"
+            placeholder="Source Account"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2"
+            [(ngModel)]="transactionData.sourceAccount"
+          />
+          <div *ngIf="f['sourceAccount'].touched && f['sourceAccount'].invalid" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div *ngIf="f['sourceAccount'].errors && f['sourceAccount'].errors['required']" class="text-sm"> Source Account is required.</div>
+          </div>
+        </div>
+
+        <div class="col-span-6 sm:col-span-6">
+          <label class="block mb-2 text-sm font-medium text-gray-900">
+            Destination Account
+          </label>
+          <input
+            formControlName="destinationAccount"
+            type="text"
+            placeholder="Destination Account"
+            [(ngModel)]="transactionData.destinationAccount"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-indigo-700 block w-full p-2"
+          />
+          <div *ngIf="f['destinationAccount'].touched && f['destinationAccount'].invalid" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div *ngIf="f['destinationAccount'].errors && f['destinationAccount'].errors['required']" class="text-sm">Destination is required.</div>
+          </div>
+        </div>
+        <div class="col-span-3 sm:col-span-6">
+          <label class="block mb-2 text-sm font-medium text-gray-900">
+            Amount
+          </label>
+          <input
+            formControlName="amount"
+            type="number"
+            placeholder="Amount"
+            [(ngModel)]="transactionData.amount"
+            class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:outline-none focus:border-indigo-700"
+            min="0"
+          />
+          <div *ngIf="f['amount'].touched && f['amount'].invalid" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div *ngIf="f['amount'].errors && f['amount'].errors['required']" class="text-sm"> amount is required.</div>
+          </div>
+          
+        </div>
+        <div class="col-span-3 sm:col-span-6">
+          <label class="block mb-2 text-sm font-medium text-gray-900">
+            Form
+          </label>
+          <input
+            formControlName="fromId"
+            type="text"
+            placeholder="from"
+            [(ngModel)]="transactionData.fromId"
+            class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:outline-none focus:border-indigo-700"
+          />
+          <div *ngIf="f['fromId'].touched && f['fromId'].invalid" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div *ngIf="f['fromId'].errors && f['fromId'].errors['required']" class="text-sm"> is required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-6 sm:col-span-6">
+        <label class="block mb-2 text-sm font-medium text-gray-900"> To </label>
+        <input
+          formControlName="toId"
+          type="text"
+          placeholder="to"
+          [(ngModel)]="transactionData.toId"
+          class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:outline-none focus:border-indigo-700"
+        />
+        <div *ngIf="f['toId'].touched && f['toId'].invalid" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div *ngIf="f['toId'].errors && f['toId'].errors['required']" class="text-sm"> TO is required.</div>
+          </div>
+      </div>
+      <div
+      class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b"
+    >
+    <button class="bg-blue-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit">
+        Save Changes
+      </button>
+    </div>
+      
+      
+    </form>
+  </div>

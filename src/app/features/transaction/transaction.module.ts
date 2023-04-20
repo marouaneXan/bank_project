@@ -9,15 +9,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { SpinnerModule } from '../spinner/spinner.module';
 import {DataTablesModule } from 'angular-datatables';
 import { DeleteTransactionComponent } from './components/delete-transaction/delete-transaction.component';
-
-
+import { GlobalModalComponent } from '../global-modal/global-modal.component';
+import { ViewTransactionComponent } from './components/view-transaction/view-transaction.component';
 
 @NgModule({
   declarations: [
     ListTransactionsComponent,
     AddTransactionComponent,
-    DeleteTransactionComponent
-  ],
+    DeleteTransactionComponent,
+    GlobalModalComponent,
+    ViewTransactionComponent
+    ],
   imports: [
     CommonModule,
     PartialsModule,
@@ -25,7 +27,7 @@ import { DeleteTransactionComponent } from './components/delete-transaction/dele
     ReactiveFormsModule,
     HttpClientModule,
     SpinnerModule,
-    DataTablesModule 
-  ]
+    DataTablesModule,
+    ]
 })
 export class TransactionModule { }

@@ -4,7 +4,6 @@ import { LoadingService } from 'src/app/core/services/loading.service';
 import { Subject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
   selector: 'app-list-transactions',
   templateUrl: './list-transactions.component.html',
@@ -16,35 +15,30 @@ export class ListTransactionsComponent implements OnDestroy {
   success: boolean = false;
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
-  modalDeleteTransaction: boolean = false
-  transactionSelected: any
+  modalDeleteTransaction: boolean = false;
+  transactionSelected: any;
 
   constructor(
     private transactionService: TransactionService,
     private loadingService: LoadingService,
     private toastr: ToastrService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.dtOption()
+    this.dtOption();
     this.getListTransaction();
   }
 
   getListTransaction(): void {
-    this.isLoading = true
-    this.loadingService.show()
     this.transactionService.getListTransaction().subscribe(
       (Transaction) => {
+        this.loading();
         this.listTransaction = Transaction;
-        this.isLoading = false
-        this.loadingService.hide()
         this.dtTrigger.next(this.listTransaction);
         this.hasLoaded();
       },
       (e) => {
-        this.isLoading = false
-        this.loadingService.hide()
-        this.error(e)
+        this.error(e);
       }
     );
   }
@@ -53,17 +47,23 @@ export class ListTransactionsComponent implements OnDestroy {
     this.dtTrigger.unsubscribe();
   }
   togglemodalDeleteTransaction(): void {
-    this.modalDeleteTransaction = !this.modalDeleteTransaction
+    this.modalDeleteTransaction = !this.modalDeleteTransaction;
+    this.dtTrigger.unsubscribe();
   }
   dtOption() {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 5,
       processing: true,
     };
   }
+  loading() {
+    this.isLoading = true;
+    this.loadingService.show();
+  }
   hasLoaded() {
+    this.isLoading = false;
     this.success = true;
+    this.loadingService.hide();
   }
   error(error: any) {
     this.success = false;

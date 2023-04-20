@@ -5,21 +5,23 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ModalComponent } from './features/modal/modal.component'
 
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { PageNotFoundComponent } from './features/page-not-found/page-not-found.component';
+// import { GlobalModalComponent } from './features/global-modal/global-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ModalComponent
+    PageNotFoundComponent,
+    // GlobalModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-     HttpClientModule
+     HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@
           <span class="text-blue-800">Project</span>
         </a>
 
-        <ul class="flex flex-col gap-6 my-auto list-none md:flex-col md:min-w-full">
+        <ul class="flex flex-col gap-6 my-8 list-none md:flex-col md:min-w-full">
             <li *ngFor="let link of sidebarLinks; let i = index" class="items-center">
                 <a [routerLink]="[link.path]" class="block py-3 text-sm uppercase" routerLinkActive
                     #activeLink="routerLinkActive"
