@@ -15,6 +15,17 @@ export class TokenService {
   clearLocalStorage() {
     sessionStorage.clear()
   }
+  decode(payload: string) {
+    return JSON.parse(atob(payload))
+  }
+  payload(token: string) {
+    const payload = token.split('.')[1]
+    return this.decode(payload)
+  }
+  getAgentIdFromPayload() {
+    const token = this.getAccessToken()
+    return token ? this.payload(token).agentId : ''
+  }
   isValid() {
     const token = this.getAccessToken()
     if (token) return true

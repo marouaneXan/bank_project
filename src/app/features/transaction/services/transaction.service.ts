@@ -10,8 +10,7 @@ export class TransactionService {
   private endpoint = "http://localhost:3000"
   constructor(private http: HttpClient) { }
   addTransaction(data: any) {
-    data["agentId"] = "123"
-    return this.http.post("https://eai-api.serveo.net/api/virements", data).pipe(
+    return this.http.post("https://api-2445584177002.production.gw.apicast.io:443/virements", data).pipe(
       catchError((error: any) => {
         return throwError('Error on making new transaction');
       })
@@ -19,14 +18,14 @@ export class TransactionService {
   }
   getListTransaction() {
     try {
-      return this.http.get(`https://eai-api.serveo.net/api/virements`)
+      return this.http.get(`https://api-2445584177002.production.gw.apicast.io:443/virements`)
     } catch (error) {
       return throwError(error);
 
     }
   }
   deleteTransaction(transaction_id: string) {
-    return this.http.delete(`https://eai-api.serveo.net/api/virements/${transaction_id}`).pipe(
+    return this.http.delete(`https://api-2445584177002.production.gw.apicast.io:443/virements/${transaction_id}`).pipe(
       catchError((error: any) => {
         return throwError('Error on deleting transaction');
       })

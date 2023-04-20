@@ -1,28 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { saveAs } from 'file-saver';
 import { TransactionService } from '../../services/transaction.service';
 import { LoadingService } from 'src/app/core/services/loading.service';
+import { TokenService } from 'src/app/core/services/token.service';
 
 @Component({
   selector: 'app-add-transaction',
   templateUrl: './add-transaction.component.html',
   styleUrls: ['./add-transaction.component.css']
 })
-export class AddTransactionComponent {
+export class AddTransactionComponent implements OnInit {
   step: number = 0
   isLoading: boolean = false
   success: boolean = false
-  constructor(private toastr: ToastrService, private transactionService: TransactionService, private loadingService: LoadingService) { }
+  constructor(private toastr: ToastrService, private transactionService: TransactionService, private loadingService: LoadingService,private tokenService:TokenService) { }
   transactionForm = new FormGroup({
     sourceAccount: new FormControl(null, [Validators.required]),
     destinationAccount: new FormControl(null, [Validators.required]),
+    agentId: new FormControl(this.tokenService.getAgentIdFromPayload(), [Validators.required]),
     amount: new FormControl(null, [Validators.required]),
   })
+  ngOnInit(): void {
+    console.log(this.tokenService.getAgentIdFromPayload());
+  }
   nextStep() {
     const { value }: FormGroup = this.transactionForm;
-    const fields = ['sourceAccount', 'destinationAccount', 'amount'];
+    const fields = ['sourceAccount', 'destinationAccount', 'amount','agentId'];
 
     if (fields.some(field => !value[field])) {
       this.toastr.warning('Please add all fields');

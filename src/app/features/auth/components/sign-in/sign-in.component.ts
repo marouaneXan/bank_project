@@ -27,7 +27,7 @@ export class SignInComponent implements OnInit {
   }
   login() {
     this.oauthService.initCodeFlow()
-    this.router.navigateByUrl('/admin/transaction')
+    this.router.navigateByUrl('/admin/transactions')
     // this.tokenService.setDataToLocalStorage(this.getAccessToken())
   }
   logout() {
