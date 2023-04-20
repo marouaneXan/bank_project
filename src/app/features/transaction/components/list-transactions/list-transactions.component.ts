@@ -48,6 +48,7 @@ export class ListTransactionsComponent implements OnDestroy {
   }
   togglemodalDeleteTransaction(): void {
     this.modalDeleteTransaction = !this.modalDeleteTransaction;
+    this.dtTrigger.unsubscribe();
   }
   dtOption() {
     this.dtOptions = {
