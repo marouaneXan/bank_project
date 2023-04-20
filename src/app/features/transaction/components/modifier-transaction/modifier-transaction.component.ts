@@ -9,7 +9,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./modifier-transaction.component.css'],
 })
 export class ModifierTransactionComponent {
-  @Input() title: string = '';
   @Input() transactionData: any = [];
   editform!: FormGroup;
   constructor(private transactionService: TransactionService,private toastr: ToastrService ) {}
