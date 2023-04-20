@@ -31,19 +31,14 @@ export class ListTransactionsComponent implements OnDestroy {
   }
 
   getListTransaction(): void {
-    this.isLoading = true
-    this.loadingService.show()
     this.transactionService.getListTransaction().subscribe(
       (Transaction) => {
+        this.loading()
         this.listTransaction = Transaction;
-        this.isLoading = false
-        this.loadingService.hide()
         this.dtTrigger.next(this.listTransaction);
         this.hasLoaded();
       },
       (e) => {
-        this.isLoading = false
-        this.loadingService.hide()
         this.error(e)
       }
     );
@@ -62,8 +57,14 @@ export class ListTransactionsComponent implements OnDestroy {
       processing: true,
     };
   }
+  loading() {
+    this.isLoading = true;
+    this.loadingService.show();
+  }
   hasLoaded() {
+    this.isLoading = false;
     this.success = true;
+    this.loadingService.hide();
   }
   error(error: any) {
     this.success = false;
