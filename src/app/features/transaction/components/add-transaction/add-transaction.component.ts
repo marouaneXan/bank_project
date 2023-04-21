@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { saveAs } from 'file-saver';
@@ -11,7 +11,7 @@ import { TokenService } from 'src/app/core/services/token.service';
   templateUrl: './add-transaction.component.html',
   styleUrls: ['./add-transaction.component.css']
 })
-export class AddTransactionComponent implements OnInit {
+export class AddTransactionComponent {
   step: number = 0
   isLoading: boolean = false
   success: boolean = false
@@ -22,9 +22,6 @@ export class AddTransactionComponent implements OnInit {
     agentId: new FormControl(this.tokenService.getAgentIdFromPayload(), [Validators.required]),
     amount: new FormControl(null, [Validators.required]),
   })
-  ngOnInit(): void {
-    console.log(this.tokenService.getAgentIdFromPayload());
-  }
   nextStep() {
     const { value }: FormGroup = this.transactionForm;
     const fields = ['sourceAccount', 'destinationAccount', 'amount','agentId'];

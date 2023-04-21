@@ -24,7 +24,7 @@ export class TokenService {
   }
   getAgentIdFromPayload() {
     const token = this.getAccessToken()
-    return token ? this.payload(token).agentId : ''
+    return token ? this.payload(token).sub : ''
   }
   isValid() {
     const token = this.getAccessToken()

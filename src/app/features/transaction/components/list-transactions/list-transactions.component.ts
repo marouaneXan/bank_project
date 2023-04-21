@@ -17,6 +17,7 @@ export class ListTransactionsComponent {
 
   ngOnInit(): void {
     this.getTransactions()
+    this.status()
   }
   getTransactions() {
     this.isLoading = true
@@ -33,6 +34,12 @@ export class ListTransactionsComponent {
   }
   togglemodalDeleteTransaction(): void {
     this.modalDeleteTransaction = !this.modalDeleteTransaction
+  }
+
+  status(){
+    this.transactionService.serverUpDown().subscribe(
+      res=>console.log(res)
+    )
   }
 
 }
