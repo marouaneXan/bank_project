@@ -7,7 +7,6 @@ import { TransactionRoutingModule } from './transaction-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerModule } from '../spinner/spinner.module';
-import {DataTablesModule } from 'angular-datatables';
 import { DeleteTransactionComponent } from './components/delete-transaction/delete-transaction.component';
 
 
@@ -24,8 +23,7 @@ import { DeleteTransactionComponent } from './components/delete-transaction/dele
     TransactionRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SpinnerModule,
-    DataTablesModule 
+    SpinnerModule
   ]
 })
 export class TransactionModule { }

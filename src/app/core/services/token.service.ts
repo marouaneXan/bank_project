@@ -12,6 +12,10 @@ export class TokenService {
   getAccessToken() {
     return sessionStorage.getItem('access_token')
   }
+  getRefreshToken():any {
+    const refresh_token = sessionStorage.getItem('refresh_token')
+    return refresh_token || ''
+  }
   clearLocalStorage() {
     sessionStorage.clear()
   }
