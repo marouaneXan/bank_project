@@ -10,9 +10,25 @@
 <app-spinner *ngIf="isLoading" [props]="{width:'28px',height:'28px'}"></app-spinner>
 <div *ngIf="!isLoading" class="flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-gray-50 mt-5">
   <div class="rounded-t py-3 border-0 mb-5">
-    <div class="flex flex-wrap items-center">
+    <div class="flex flex-wrap items-center justify-between">
       <div class="relative w-full px-4 max-w-full flex-grow flex-1">
         <h3 class="text-lg font-medium">List of transactions</h3>
+      </div>
+      <div class="col-span-6 sm:col-span-3 px-4" >
+        <div class="relative w-full ">
+          <div class="absolute inset-0 w-4 h-4 m-auto ml-4 text-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="16" height="16"
+              viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <circle cx="10" cy="10" r="7" />
+              <line x1="21" y1="21" x2="15" y2="15" />
+            </svg>
+          </div>
+          <input
+            class="w-[20vw] py-2 pl-12 text-sm text-gray-500 bg-gray-100 border border-gray-100 rounded focus:outline-none focus:border-indigo-700"
+            type="search" placeholder="Search" placeholder="Search" [(ngModel)]="searchQuery" (input)="searchTransactions()" />
+        </div>
       </div>
     </div>
   </div>
@@ -58,7 +74,6 @@
           </td>
           <td class="space-x-2 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
             <i class="fa-solid fa-eye text-[14px] cursor-pointer"></i>
-            <i class="fa-solid fa-pen text-[14px] cursor-pointer"></i>
             <i (click)="togglemodalDeleteTransaction();transactionSelected=transaction.id"
               class="fa-solid fa-trash text-[14px] cursor-pointer text-red-500"></i>
           </td>

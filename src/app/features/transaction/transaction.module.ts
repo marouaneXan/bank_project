@@ -4,7 +4,7 @@ import { ListTransactionsComponent } from './components/list-transactions/list-t
 import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
 import { PartialsModule } from 'src/app/views/partials/partials.module';
 import { TransactionRoutingModule } from './transaction-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerModule } from '../spinner/spinner.module';
 import { DeleteTransactionComponent } from './components/delete-transaction/delete-transaction.component';
@@ -23,7 +23,8 @@ import { DeleteTransactionComponent } from './components/delete-transaction/dele
     TransactionRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SpinnerModule
+    SpinnerModule,
+    FormsModule
   ]
 })
 export class TransactionModule { }
