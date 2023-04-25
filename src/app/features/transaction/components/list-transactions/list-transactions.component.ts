@@ -16,6 +16,7 @@ export class ListTransactionsComponent {
   today = new Date()
   filteredTransactions: Transaction[] | Transaction = [];
   searchQuery: string = '';
+  emptyTransactionsList: string = ''
   constructor(private transactionService: TransactionService, private loadingService: LoadingService) { }
 
   ngOnInit(): void {
@@ -29,10 +30,12 @@ export class ListTransactionsComponent {
       this.listTransaction = Transaction as Transaction[]
       this.isLoading = false
       this.loadingService.hide()
+      this.emptyTransactionsList = "";
     },
       (err) => {
         this.isLoading = false;
         this.loadingService.hide();
+        this.emptyTransactionsList = "You don't make any transactions yet";
       })
   }
   togglemodalDeleteTransaction(): void {
