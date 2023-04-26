@@ -17,10 +17,10 @@ export class AddTransactionComponent implements OnInit {
   success: boolean = false
   constructor(private toastr: ToastrService, private transactionService: TransactionService, private loadingService: LoadingService,private tokenService:TokenService) { }
   transactionForm = new FormGroup({
-    sourceAccount: new FormControl(null, [Validators.required]),
-    destinationAccount: new FormControl(null, [Validators.required]),
+    sourceAccount: new FormControl<string | null>(null, [Validators.required]),
+    destinationAccount: new FormControl<string | null>(null, [Validators.required]),
     agentId: new FormControl(this.tokenService.getAgentIdFromPayload(), [Validators.required]),
-    amount: new FormControl(null, [Validators.required]),
+    amount: new FormControl<number | null>(null, [Validators.required]),
   })
   ngOnInit(): void {
     console.log(this.tokenService.getAgentIdFromPayload());
