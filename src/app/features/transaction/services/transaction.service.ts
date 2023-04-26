@@ -12,7 +12,7 @@ export class TransactionService {
   private addedTransactions = 0;
   constructor(private http: HttpClient) { }
   addTransaction(data: Transaction) {
-    return this.http.post(`${this.endpoint}/virements`, data).pipe(
+    return this.http.post(`${this.endpoint}`, data).pipe(
       tap(() => this.addedTransactions++),
       catchError((error: any) => {
         return throwError('Error on making new transaction');
@@ -21,14 +21,14 @@ export class TransactionService {
   }
   getListTransaction() {
     try {
-      return this.http.get(`${this.endpoint}/virements`)
+      return this.http.get(`${this.endpoint}`)
     } catch (error) {
       return throwError(error);
 
     }
   }
-  deleteTransaction(transaction_id: string) {
-    return this.http.delete(`${this.endpoint}/virements/${transaction_id}`).pipe(
+  deleteTransaction(transaction_id: number) {
+    return this.http.delete(`${this.endpoint}/${transaction_id}`).pipe(
       tap(() => this.deletedTransactions++),
       catchError((error: any) => {
         return throwError('Error on deleting transaction');

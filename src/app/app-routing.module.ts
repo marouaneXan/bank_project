@@ -5,14 +5,14 @@ import { AuthDeactivateGuard } from './core/guards/auth-deactivate.guard'
 const routes: Routes = [
     {
         path: 'auth',
-        // canActivate: [AuthDeactivateGuard],
+        canActivate: [AuthDeactivateGuard],
         children: [
             { path: '', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) }
         ],
     },
     {
         path: 'admin',
-        // canActivate: [AuthActivateGuard],
+        canActivate: [AuthActivateGuard],
         children: [
             { path: '', loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule) }
         ],

@@ -15,8 +15,8 @@ export class NavbarComponent implements OnInit {
   agence_name: string = ''
   constructor(private tokenService: TokenService, private router: Router, private oauthService: OAuthService) { }
   signOut() {
-    this.tokenService.clearLocalStorage()
-    this.router.navigateByUrl('/auth/sign-in')
+    this.oauthService.logOut()
+    this.router.navigateByUrl('auth/sign-in')
   }
   ngOnInit() {
     const agenceClaims: any = this.oauthService.getIdentityClaims()

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, LOCALE_ID } from '@angular/core';
 import { TransactionService } from 'src/app/features/transaction/services/transaction.service';
 
 @Component({
@@ -7,10 +7,10 @@ import { TransactionService } from 'src/app/features/transaction/services/transa
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  transactions = 0
-  todayTransactions = 0
-  deletedTransactions = 0
-  addedTransactions = 0
+  transactions = 0;
+  todayTransactions = 0;
+  deletedTransactions = 0;
+  addedTransactions = 0;
   cards = [
     {
       title: 'number of transactions',
@@ -28,25 +28,33 @@ export class DashboardComponent {
       icon: 'fa-solid fa-trash'
     },
     {
-      title: 'deleted transactions',
-      statistic: this.deletedTransactions,
+      title: 'added transactions',
+      statistic: this.addedTransactions,
       icon: 'fa-solid fa-bolt'
     }
-  ]
-  ngOnInit(): void {
-    this.statistics()
-  }
+  ];
+
   constructor(private transactionService: TransactionService) { }
+
+  ngOnInit(): void {
+    this.statistics();
+  }
+
   statistics() {
     this.transactionService.getListTransaction().subscribe(
       (res: any) => {
-        this.transactions = res.length
-        this.deletedTransactions = this.transactionService.getDeletedTransactionCount()
-        this.addedTransactions = this.transactionService.getAddedTransactionCount()
+        console.log(res);
+        this.transactions = res.length;
+        this.deletedTransactions = this.transactionService.getDeletedTransactionCount();
+        this.addedTransactions = this.transactionService.getAddedTransactionCount();
         this.cards[0].statistic = this.transactions;
-        this.cards[0].statistic = this.deletedTransactions
-        this.cards[0].statistic = this.addedTransactions
+        this.cards[1].statistic = this.todayTransactions;
+        this.cards[2].statistic = this.deletedTransactions;
+        this.cards[3].statistic = this.addedTransactions;
+      },
+      (error: any) => {
+        console.error(error);
       }
-    )
+    );
   }
 }

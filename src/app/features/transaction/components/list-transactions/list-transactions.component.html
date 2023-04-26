@@ -10,7 +10,7 @@
 <app-spinner *ngIf="isLoading" [props]="{width:'28px',height:'28px'}"></app-spinner>
 <ng-container>
   <div class="flex flex-col justify-center items-center h-96" *ngIf="emptyTransactionsList">
-    <img class="rounded-full" width="300px" height="300px" src="../../../../../assets/account.webp" alt>
+    <img width="300px" height="300px" src="../../../../../assets/account.png" alt>
     <strong>{{emptyTransactionsList}}</strong>
   </div>
 </ng-container>
@@ -76,7 +76,7 @@
             {{ transaction.amount }}
           </td>
           <td class="border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
-            {{today | date}}
+            {{transaction.dateCreated | date}}
           </td>
           <td class="space-x-2 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-nowrap p-2">
             <i class="fa-solid fa-eye text-[14px] cursor-pointer"></i>

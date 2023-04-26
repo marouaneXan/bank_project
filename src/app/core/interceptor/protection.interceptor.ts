@@ -1,62 +1,91 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor,
-  HttpErrorResponse
-} from '@angular/common/http';
-import { Observable, catchError, switchMap, throwError } from 'rxjs';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse, HttpEvent } from '@angular/common/http';
+import { Observable, throwError, BehaviorSubject, from } from 'rxjs';
+import { catchError, filter, switchMap, take, retry } from 'rxjs/operators';
+import { OAuthService } from 'angular-oauth2-oidc';
 import { TokenService } from '../services/token.service';
 
 @Injectable()
 export class ProtectionInterceptor implements HttpInterceptor {
-  private isRefreshing = false;
 
-  constructor(private tokenService: TokenService) { }
+  private refreshTokenInProgress = false;
+  private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = this.tokenService.getAccessToken();
-    if (token) {
-      // we set it to the header
+  constructor(private oauthService: OAuthService, private tokenService: TokenService) { }
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+    const accessToken = this.oauthService.getAccessToken();
+    if (accessToken) {
       request = request.clone({
-        headers: request.headers.set('Authorization', 'Bearer ' + token)
+        setHeaders: {
+          Authorization: `Bearer ${accessToken}`
+        }
       });
     }
     return next.handle(request).pipe(
-      catchError((error: any) => {
-        if (error instanceof HttpErrorResponse && error.status === 401) {
-          return this.handle401Error(request, next) as Observable<HttpEvent<unknown>>;
+      catchError((error: HttpErrorResponse) => {
+        console.log(error);
+        if (error.status === 403 && error.statusText === "Forbidden") {
+          // Retry the request up to 3 times before giving up
+          return this.handle403Error(request, next).pipe(retry(3));
+        } else if (error.status === 401 && error.statusText === "Unauthorized") {
+          // If 401 status is returned, try to refresh the token
+          return this.handle401Error(request, next);
         }
         return throwError(error);
       })
     );
   }
 
-  private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
-    if (!this.isRefreshing) {
-      this.isRefreshing = true;
-
-      if (this.tokenService.loggedIn()) {
-        return this.tokenService.getRefreshToken().pipe(
-          switchMap(() => {
-            this.isRefreshing = false;
-
-            return next.handle(request);
-          }),
-          catchError((error) => {
-            this.isRefreshing = false;
-
-            if (error.status == '403') {
-              this.tokenService.clearLocalStorage();
-            }
-
-            return throwError(() => error);
-          })
-        );
+  private handle403Error(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    // Add any necessary headers or parameters to the request
+    const accessToken = this.oauthService.getAccessToken();
+    request = request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${accessToken}`
       }
-    }
-
+    });
+    // Retry the request with the updated request object
     return next.handle(request);
+  }
+
+  private handle401Error(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (!this.refreshTokenInProgress) {
+      this.refreshTokenInProgress = true;
+      this.refreshTokenSubject.next(null);
+      return from(this.oauthService.refreshToken()).pipe(
+        switchMap(() => {
+          this.refreshTokenInProgress = false;
+          this.refreshTokenSubject.next(true);
+          const accessToken = this.oauthService.getAccessToken();
+          request = request.clone({
+            setHeaders: {
+              Authorization: `Bearer ${accessToken}`
+            }
+          });
+          return next.handle(request);
+        }),
+        catchError((error: HttpErrorResponse) => {
+          this.refreshTokenInProgress = false;
+          this.oauthService.logOut();
+          return throwError(error);
+        })
+      );
+    } else {
+      return this.refreshTokenSubject.pipe(
+        filter(result => result !== null),
+        take(1),
+        switchMap(() => {
+          const accessToken = this.oauthService.getAccessToken();
+          request = request.clone({
+            setHeaders: {
+              Authorization: `Bearer ${accessToken}`
+            }
+          });
+          return next.handle(request);
+        })
+      );
+    }
   }
 }
