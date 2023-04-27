@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OAuthService, OAuthModule } from 'angular-oauth2-oidc';
+import { OAuthService } from 'angular-oauth2-oidc';
 import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
 import { TokenService } from 'src/app/core/services/token.service';
 import { authCodeFlowConfig } from 'src/app/sso-config';
@@ -11,29 +11,19 @@ import { authCodeFlowConfig } from 'src/app/sso-config';
 })
 
 export class SignInComponent implements OnInit {
-  name: string = ''
   constructor(private oauthService: OAuthService, private router: Router, private tokenService: TokenService) { }
   ngOnInit(): void {
     this.configureSSO()
-    const userClaims: any = this.oauthService.getIdentityClaims()
-    this.name = userClaims?.name ? userClaims?.name : ''
-    console.log(this.tokenService.getAccessToken());
-    // this.logout()
   }
   configureSSO() {
     this.oauthService.configure(authCodeFlowConfig)
-    this.oauthService.tokenValidationHandler = new JwksValidationHandler()
-    this.oauthService.loadDiscoveryDocumentAndTryLogin()
+    // this.oauthService.tokenValidationHandler = new JwksValidationHandler()
+    this.oauthService.loadDiscoveryDocumentAndTryLogin().then(() => this.router.navigateByUrl('admin'))
   }
   login() {
     this.oauthService.initCodeFlow()
-    this.router.navigateByUrl('/admin/transactions')
-    // this.tokenService.setDataToLocalStorage(this.getAccessToken())
   }
   logout() {
     this.oauthService.logOut()
-  }
-  getAccessToken(): string {
-    return this.oauthService.getAccessToken();
   }
 }

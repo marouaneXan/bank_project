@@ -6,11 +6,12 @@ import { Injectable } from '@angular/core';
 export class TokenService {
 
   constructor() { }
-  // setDataToLocalStorage(acess_token: string) {
-  //   sessionStorage.setItem('access_token', acess_token)
-  // }
   getAccessToken() {
     return sessionStorage.getItem('access_token')
+  }
+  getRefreshToken():any {
+    const refresh_token = sessionStorage.getItem('refresh_token')
+    return refresh_token || ''
   }
   clearLocalStorage() {
     sessionStorage.clear()
@@ -24,7 +25,7 @@ export class TokenService {
   }
   getAgentIdFromPayload() {
     const token = this.getAccessToken()
-    return token ? this.payload(token).agentId : ''
+    return token ? this.payload(token).sub : ''
   }
   isValid() {
     const token = this.getAccessToken()

@@ -8,6 +8,7 @@ const routes: Routes = [
     component:LayoutComponent,
     children:[
       { path: 'transactions', loadChildren: () => import('../features/transaction/transaction.module').then(m => m.TransactionModule) },
+      { path: '', loadChildren: () => import('../views/dashboard/dashboard.module').then(m => m.DashboardModule) },
     ]
   }, 
 ];

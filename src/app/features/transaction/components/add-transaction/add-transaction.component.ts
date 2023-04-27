@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
-import { saveAs } from 'file-saver';
+// import { saveAs } from 'file-saver';
 import { TransactionService } from '../../services/transaction.service';
 import { LoadingService } from 'src/app/core/services/loading.service';
 import { TokenService } from 'src/app/core/services/token.service';
@@ -11,7 +11,7 @@ import { TokenService } from 'src/app/core/services/token.service';
   templateUrl: './add-transaction.component.html',
   styleUrls: ['./add-transaction.component.css']
 })
-export class AddTransactionComponent implements OnInit {
+export class AddTransactionComponent {
   step: number = 0
   isLoading: boolean = false
   success: boolean = false
@@ -22,9 +22,6 @@ export class AddTransactionComponent implements OnInit {
     agentId: new FormControl(this.tokenService.getAgentIdFromPayload(), [Validators.required]),
     amount: new FormControl<number | null>(null, [Validators.required]),
   })
-  ngOnInit(): void {
-    console.log(this.tokenService.getAgentIdFromPayload());
-  }
   nextStep() {
     const { value }: FormGroup = this.transactionForm;
     const fields = ['sourceAccount', 'destinationAccount', 'amount','agentId'];
@@ -63,25 +60,25 @@ export class AddTransactionComponent implements OnInit {
       )
     }
   }
-  convertToCsv(data: any[]): string {
-    const separator = ',';
-    const keys = Object.keys(data[0]);
-    let csv = keys.join(separator) + '\n';
-    data.forEach(item => {
-      const values = keys.map(key => item[key]);
-      csv += values.join(separator) + '\n';
-    });
-    return csv;
-  }
-  downloadCsv(myData: any) {
-    if (!myData) {
-      this.toastr.error('No data to download');
-      return;
-    } else {
-      console.log(myData);
-      const csvData = this.convertToCsv([myData]);
-      const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
-      saveAs(blob, 'data.csv');
-    }
-  }
+  // convertToCsv(data: any[]): string {
+  //   const separator = ',';
+  //   const keys = Object.keys(data[0]);
+  //   let csv = keys.join(separator) + '\n';
+  //   data.forEach(item => {
+  //     const values = keys.map(key => item[key]);
+  //     csv += values.join(separator) + '\n';
+  //   });
+  //   return csv;
+  // }
+  // downloadCsv(myData: any) {
+  //   if (!myData) {
+  //     this.toastr.error('No data to download');
+  //     return;
+  //   } else {
+  //     console.log(myData);
+  //     const csvData = this.convertToCsv([myData]);
+  //     const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+  //     saveAs(blob, 'data.csv');
+  //   }
+  // }
 }

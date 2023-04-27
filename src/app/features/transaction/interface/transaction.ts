@@ -4,5 +4,5 @@ export interface Transaction {
     destinationAccount: string,
     AgentId: string,
     amount: number,
-    date: Date
+    dateCreated?: Date
 }
