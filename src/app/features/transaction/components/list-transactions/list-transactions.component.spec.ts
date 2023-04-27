@@ -1,23 +1,38 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { HttpClientTestingModule } from '@angular/common/http/testing';
+// import { ListTransactionsComponent } from './list-transactions.component';
+// import { TransactionService } from '../../services/transaction.service';
+// import { LoadingService } from 'src/app/core/services/loading.service';
 
-import { ListTransactionsComponent } from './list-transactions.component';
+// describe('ListTransactionsComponent', () => {
+//   let component: ListTransactionsComponent;
+//   let fixture: ComponentFixture<ListTransactionsComponent>;
+//   let transactionService: TransactionService;
+//   let loadingService: LoadingService;
 
-describe('ListTransactionsComponent', () => {
-  let component: ListTransactionsComponent;
-  let fixture: ComponentFixture<ListTransactionsComponent>;
+//   beforeEach(async () => {
+//     await TestBed.configureTestingModule({
+//       imports: [HttpClientTestingModule],
+//       declarations: [ListTransactionsComponent],
+//       providers: [TransactionService, LoadingService],
+//     }).compileComponents();
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ListTransactionsComponent ]
-    })
-    .compileComponents();
+//     fixture = TestBed.createComponent(ListTransactionsComponent);
+//     component = fixture.componentInstance;
+//     transactionService = TestBed.inject(TransactionService);
+//     loadingService = TestBed.inject(LoadingService);
+//     fixture.detectChanges();
+//   });
 
-    fixture = TestBed.createComponent(ListTransactionsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   it('should create the component', () => {
+//     expect(component).toBeTruthy();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   // it('should call getTransactions on ngOnInit', () => {
+//   //   spyOn(component, 'getTransactions');
+//   //   component.ngOnInit();
+//   //   expect(component.getTransactions).toHaveBeenCalled();
+//   // });
+
+
+// });

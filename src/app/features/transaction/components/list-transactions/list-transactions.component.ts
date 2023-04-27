@@ -42,6 +42,7 @@ export class ListTransactionsComponent {
     this.modalDeleteTransaction = !this.modalDeleteTransaction
   }
 
+<<<<<<< HEAD
   status() {
     this.transactionService.serverUpDown().subscribe(
       res => console.log(res)
@@ -60,3 +61,6 @@ export class ListTransactionsComponent {
   }
 
 }
+=======
+}
+>>>>>>> test
