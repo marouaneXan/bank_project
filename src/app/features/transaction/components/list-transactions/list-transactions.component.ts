@@ -41,7 +41,6 @@ export class ListTransactionsComponent {
   togglemodalDeleteTransaction(): void {
     this.modalDeleteTransaction = !this.modalDeleteTransaction
   }
-
   status() {
     this.transactionService.serverUpDown().subscribe(
       res => console.log(res)
