@@ -8,12 +8,15 @@ import { Transaction } from '../interface/transaction';
 })
 export class TransactionService {
   private endpoint = "https://api-2445584170597.production.gw.apicast.io:443"
-  private deletedTransactions = 0;
-  private addedTransactions = 0;
+  private deletedTransactions = parseInt(localStorage.getItem('deletedTransactions') || "0");
+  private addedTransactions = parseInt(localStorage.getItem('addedTransactions') || "0");
   constructor(private http: HttpClient) { }
   addTransaction(data: Transaction) {
     return this.http.post(`${this.endpoint}`, data).pipe(
-      tap(() => this.addedTransactions++),
+      tap(() => {
+        this.addedTransactions++
+        localStorage.setItem('deletedTransactions', this.addedTransactions.toString());
+      }),
       catchError((error: any) => {
         return throwError('Error on making new transaction');
       })
@@ -29,7 +32,10 @@ export class TransactionService {
   }
   deleteTransaction(transaction_id: number) {
     return this.http.delete(`${this.endpoint}/${transaction_id}`).pipe(
-      tap(() => this.deletedTransactions++),
+      tap(() => {
+        this.deletedTransactions++;
+        localStorage.setItem('deletedTransactions', this.deletedTransactions.toString());
+      }),
       catchError((error: any) => {
         return throwError('Error on deleting transaction');
       })
