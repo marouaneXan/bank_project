@@ -28,9 +28,9 @@ export class DashboardComponent {
       icon: 'fa-solid fa-trash'
     },
     {
-      title: 'added transactions',
+      title: 'total amount',
       statistic: this.addedTransactions,
-      icon: 'fa-solid fa-bolt'
+      icon: 'fa-solid fa-money-check-dollar'
     }
   ];
 
