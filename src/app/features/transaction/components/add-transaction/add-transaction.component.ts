@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
-// import { saveAs } from 'file-saver';
 import { TransactionService } from '../../services/transaction.service';
 import { LoadingService } from 'src/app/core/services/loading.service';
 import { TokenService } from 'src/app/core/services/token.service';
@@ -49,7 +48,6 @@ export class AddTransactionComponent {
           this.loadingService.hide()
           this.transactionForm.reset()
           this.step++
-          // this.downloadCsv(transactionForm.value)
         },
         err => {
           this.toastr.error(err);
@@ -60,25 +58,4 @@ export class AddTransactionComponent {
       )
     }
   }
-  // convertToCsv(data: any[]): string {
-  //   const separator = ',';
-  //   const keys = Object.keys(data[0]);
-  //   let csv = keys.join(separator) + '\n';
-  //   data.forEach(item => {
-  //     const values = keys.map(key => item[key]);
-  //     csv += values.join(separator) + '\n';
-  //   });
-  //   return csv;
-  // }
-  // downloadCsv(myData: any) {
-  //   if (!myData) {
-  //     this.toastr.error('No data to download');
-  //     return;
-  //   } else {
-  //     console.log(myData);
-  //     const csvData = this.convertToCsv([myData]);
-  //     const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
-  //     saveAs(blob, 'data.csv');
-  //   }
-  // }
 }

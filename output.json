@@ -1,0 +1,676 @@
+{
+  "results": [
+    {
+      "bundleName": "dist/bank_project/198.d975e97f6cf0f05a.js",
+      "totalBytes": 21451,
+      "mappedBytes": 21165,
+      "unmappedBytes": 237,
+      "eolBytes": 1,
+      "sourceMapCommentBytes": 48,
+      "files": {
+        "webpack:///src/app/views/partials/navbar/navbar.component.html": {
+          "size": 1227
+        },
+        "webpack:///src/app/views/partials/navbar/navbar.component.ts": {
+          "size": 3892
+        },
+        "webpack:///src/app/views/partials/sidebar/sidebar.component.html": {
+          "size": 2654
+        },
+        "webpack:///src/app/views/partials/sidebar/sidebar.component.ts": {
+          "size": 12091
+        },
+        "webpack:///src/app/layouts/layouts-routing.module.ts": {
+          "size": 440
+        },
+        "webpack:///src/app/layouts/layout/layout.component.ts": {
+          "size": 343
+        },
+        "webpack:///src/app/layouts/layout/layout.component.html": {
+          "size": 157
+        },
+        "webpack:///src/app/layouts/layouts.module.ts": {
+          "size": 212
+        },
+        "webpack:///src/app/views/partials/partials.module.ts": {
+          "size": 149
+        },
+        "[sourceMappingURL]": {
+          "size": 48
+        },
+        "[unmapped]": {
+          "size": 237
+        },
+        "[EOLs]": {
+          "size": 1
+        }
+      }
+    },
+    {
+      "bundleName": "dist/bank_project/721.78feeabf504f5c98.js",
+      "totalBytes": 53710,
+      "mappedBytes": 53369,
+      "unmappedBytes": 292,
+      "eolBytes": 1,
+      "sourceMapCommentBytes": 48,
+      "files": {
+        "webpack:///node_modules/@angular/forms/fesm2020/forms.mjs": {
+          "size": 30212
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/forkJoin.js": {
+          "size": 374
+        },
+        "webpack:///src/app/core/services/loading.service.ts": {
+          "size": 386
+        },
+        "webpack:///src/app/features/spinner/spinner/spinner.component.ts": {
+          "size": 1543
+        },
+        "webpack:///src/app/features/spinner/spinner/spinner.component.html": {
+          "size": 236
+        },
+        "webpack:///src/app/features/transaction/components/add-transaction/add-transaction.component.html": {
+          "size": 4445
+        },
+        "webpack:///src/app/features/transaction/components/add-transaction/add-transaction.component.ts": {
+          "size": 5820
+        },
+        "webpack:///src/app/features/transaction/components/delete-transaction/delete-transaction.component.html": {
+          "size": 1080
+        },
+        "webpack:///src/app/features/transaction/components/delete-transaction/delete-transaction.component.ts": {
+          "size": 2589
+        },
+        "webpack:///src/app/features/transaction/components/list-transactions/list-transactions.component.html": {
+          "size": 2451
+        },
+        "webpack:///src/app/features/transaction/transaction-routing.module.ts": {
+          "size": 232
+        },
+        "webpack:///src/app/features/transaction/components/list-transactions/list-transactions.component.ts": {
+          "size": 3696
+        },
+        "webpack:///src/app/features/spinner/spinner.module.ts": {
+          "size": 141
+        },
+        "webpack:///src/app/features/transaction/transaction.module.ts": {
+          "size": 164
+        },
+        "[sourceMappingURL]": {
+          "size": 48
+        },
+        "[unmapped]": {
+          "size": 292
+        },
+        "[EOLs]": {
+          "size": 1
+        }
+      }
+    },
+    {
+      "bundleName": "dist/bank_project/769.67f8cdd99ed98d79.js",
+      "totalBytes": 2455,
+      "mappedBytes": 2242,
+      "unmappedBytes": 164,
+      "eolBytes": 1,
+      "sourceMapCommentBytes": 48,
+      "files": {
+        "webpack:///src/environment/environment.ts": {
+          "size": 111
+        },
+        "webpack:///src/app/sso-config.ts": {
+          "size": 188
+        },
+        "webpack:///src/app/features/auth/auth-routing.module.ts": {
+          "size": 192
+        },
+        "webpack:///src/app/features/auth/components/sign-in/sign-in.component.ts": {
+          "size": 1324
+        },
+        "webpack:///src/app/features/auth/components/sign-in/sign-in.component.html": {
+          "size": 285
+        },
+        "webpack:///src/app/features/auth/auth.module.ts": {
+          "size": 142
+        },
+        "[sourceMappingURL]": {
+          "size": 48
+        },
+        "[unmapped]": {
+          "size": 164
+        },
+        "[EOLs]": {
+          "size": 1
+        }
+      }
+    },
+    {
+      "bundleName": "dist/bank_project/85.47d4772fdd0c044b.js",
+      "totalBytes": 3076,
+      "mappedBytes": 2815,
+      "unmappedBytes": 213,
+      "eolBytes": 1,
+      "sourceMapCommentBytes": 47,
+      "files": {
+        "webpack:///src/app/views/dashboard/components/dashboard.component.html": {
+          "size": 480
+        },
+        "webpack:///src/app/views/dashboard/dashboard-routing.module.ts": {
+          "size": 185
+        },
+        "webpack:///src/app/views/dashboard/components/dashboard.component.ts": {
+          "size": 2008
+        },
+        "webpack:///src/app/views/dashboard/dashboard.module.ts": {
+          "size": 142
+        },
+        "[sourceMappingURL]": {
+          "size": 47
+        },
+        "[unmapped]": {
+          "size": 213
+        },
+        "[EOLs]": {
+          "size": 1
+        }
+      }
+    },
+    {
+      "bundleName": "dist/bank_project/common.5c0c89be326f1638.js",
+      "totalBytes": 1428,
+      "mappedBytes": 1198,
+      "unmappedBytes": 178,
+      "eolBytes": 1,
+      "sourceMapCommentBytes": 51,
+      "files": {
+        "webpack:///src/app/features/transaction/services/transaction.service.ts": {
+          "size": 1198
+        },
+        "[sourceMappingURL]": {
+          "size": 51
+        },
+        "[unmapped]": {
+          "size": 178
+        },
+        "[EOLs]": {
+          "size": 1
+        }
+      }
+    },
+    {
+      "bundleName": "dist/bank_project/main.f69e34404b532ac8.js",
+      "totalBytes": 411948,
+      "mappedBytes": 411757,
+      "unmappedBytes": 141,
+      "eolBytes": 1,
+      "sourceMapCommentBytes": 49,
+      "files": {
+        "webpack:///src/app/core/services/token.service.ts": {
+          "size": 649
+        },
+        "webpack:///node_modules/@angular/animations/fesm2020/browser.mjs": {
+          "size": 56910
+        },
+        "webpack:///node_modules/@angular/platform-browser/fesm2020/animations.mjs": {
+          "size": 6273
+        },
+        "webpack:///src/app/app.component.ts": {
+          "size": 208
+        },
+        "webpack:///src/app/app.component.html": {
+          "size": 49
+        },
+        "webpack:///src/app/core/services/auth.service.ts": {
+          "size": 329
+        },
+        "webpack:///src/app/app-routing.module.ts": {
+          "size": 599
+        },
+        "webpack:///src/app/core/guards/auth-deactivate.guard.ts": {
+          "size": 434
+        },
+        "webpack:///src/app/core/guards/auth-activate.guard.ts": {
+          "size": 498
+        },
+        "webpack:///src/app/core/interceptor/protection.interceptor.ts": {
+          "size": 1402
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/retry.js": {
+          "size": 517
+        },
+        "webpack:///src/app/app.module.ts": {
+          "size": 245
+        },
+        "webpack:///src/main.ts": {
+          "size": 103
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/BehaviorSubject.js": {
+          "size": 439
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/Observable.js": {
+          "size": 1142
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/ObjectUnsubscribedError.js": {
+          "size": 146
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/Subject.js": {
+          "size": 2231
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/NotificationFactories.js": {
+          "size": 187
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/Subscriber.js": {
+          "size": 1712
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/UnsubscriptionError.js": {
+          "size": 247
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/Subscription.js": {
+          "size": 1479
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/config.js": {
+          "size": 278
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/combineLatest.js": {
+          "size": 631
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/concat.js": {
+          "size": 92
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/concatAll.js": {
+          "size": 30
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/empty.js": {
+          "size": 123
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/observeOn.js": {
+          "size": 191
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/subscribeOn.js": {
+          "size": 128
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduled/scheduleAsyncIterable.js": {
+          "size": 315
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/from.js": {
+          "size": 219
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduled/scheduled.js": {
+          "size": 237
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduled/scheduleObservable.js": {
+          "size": 58
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduled/scheduleArray.js": {
+          "size": 159
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduled/schedulePromise.js": {
+          "size": 58
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduled/scheduleIterable.js": {
+          "size": 263
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduled/scheduleReadableStreamLike.js": {
+          "size": 44
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/innerFrom.js": {
+          "size": 1238
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/merge.js": {
+          "size": 209
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/of.js": {
+          "size": 121
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/throwError.js": {
+          "size": 200
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/timer.js": {
+          "size": 312
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/OperatorSubscriber.js": {
+          "size": 702
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/catchError.js": {
+          "size": 305
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/concatMap.js": {
+          "size": 128
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/defaultIfEmpty.js": {
+          "size": 197
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/filter.js": {
+          "size": 219
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/first.js": {
+          "size": 216
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/map.js": {
+          "size": 162
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/mapTo.js": {
+          "size": 96
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/mergeAll.js": {
+          "size": 145
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/mergeMap.js": {
+          "size": 251
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/mergeInternals.js": {
+          "size": 484
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/switchMap.js": {
+          "size": 367
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/take.js": {
+          "size": 227
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/tap.js": {
+          "size": 650
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/throwIfEmpty.js": {
+          "size": 231
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduler/Action.js": {
+          "size": 79
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduler/intervalProvider.js": {
+          "size": 249
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduler/dateTimestampProvider.js": {
+          "size": 61
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/Scheduler.js": {
+          "size": 172
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduler/async.js": {
+          "size": 55
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduler/AsyncScheduler.js": {
+          "size": 325
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduler/AsyncAction.js": {
+          "size": 1192
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/scheduler/timeoutProvider.js": {
+          "size": 253
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/symbol/iterator.js": {
+          "size": 138
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/symbol/observable.js": {
+          "size": 105
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/EmptyError.js": {
+          "size": 189
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/args.js": {
+          "size": 242
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/argsArgArrayOrObject.js": {
+          "size": 322
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/arrRemove.js": {
+          "size": 103
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/createErrorClass.js": {
+          "size": 192
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/createObject.js": {
+          "size": 143
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/errorContext.js": {
+          "size": 309
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/executeSchedule.js": {
+          "size": 186
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/identity.js": {
+          "size": 77
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/isArrayLike.js": {
+          "size": 111
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/isAsyncIterable.js": {
+          "size": 97
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/isDate.js": {
+          "size": 86
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/isFunction.js": {
+          "size": 119
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/isInteropObservable.js": {
+          "size": 99
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/isIterable.js": {
+          "size": 91
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/isPromise.js": {
+          "size": 106
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/isReadableStreamLike.js": {
+          "size": 326
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/isScheduler.js": {
+          "size": 103
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/lift.js": {
+          "size": 268
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/mapOneOrManyArgs.js": {
+          "size": 133
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/noop.js": {
+          "size": 89
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/pipe.js": {
+          "size": 203
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/reportUnhandledError.js": {
+          "size": 110
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/throwUnobservableError.js": {
+          "size": 268
+        },
+        "webpack:///node_modules/tslib/tslib.es6.js": {
+          "size": 2050
+        },
+        "webpack:///node_modules/@angular/animations/fesm2020/animations.mjs": {
+          "size": 3885
+        },
+        "webpack:///node_modules/@angular/common/fesm2020/common.mjs": {
+          "size": 25792
+        },
+        "webpack:///node_modules/@angular/common/fesm2020/http.mjs": {
+          "size": 18005
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/share.js": {
+          "size": 720
+        },
+        "webpack:///node_modules/@angular/core/fesm2020/core.mjs": {
+          "size": 110738
+        },
+        "webpack:///node_modules/@angular/platform-browser/fesm2020/platform-browser.mjs": {
+          "size": 14166
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/defer.js": {
+          "size": 133
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/refCount.js": {
+          "size": 292
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/ConnectableObservable.js": {
+          "size": 895
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/scan.js": {
+          "size": 62
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/scanInternals.js": {
+          "size": 180
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/takeLast.js": {
+          "size": 229
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/last.js": {
+          "size": 152
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/finalize.js": {
+          "size": 102
+        },
+        "webpack:///node_modules/@angular/router/fesm2020/router.mjs": {
+          "size": 75812
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/startWith.js": {
+          "size": 111
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/takeWhile.js": {
+          "size": 135
+        },
+        "webpack:///node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js": {
+          "size": 440
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/util/argsOrArgArray.js": {
+          "size": 222
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/delayWhen.js": {
+          "size": 156
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/ignoreElements.js": {
+          "size": 68
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/delay.js": {
+          "size": 139
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/timeout.js": {
+          "size": 733
+        },
+        "webpack:///node_modules/angular-oauth2-oidc/fesm2020/angular-oauth2-oidc.mjs": {
+          "size": 49511
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/operators/debounceTime.js": {
+          "size": 369
+        },
+        "webpack:///node_modules/rxjs/dist/esm/internal/observable/race.js": {
+          "size": 279
+        },
+        "webpack:///node_modules/ngx-toastr/fesm2020/ngx-toastr.mjs": {
+          "size": 14695
+        },
+        "[sourceMappingURL]": {
+          "size": 49
+        },
+        "[unmapped]": {
+          "size": 141
+        },
+        "[EOLs]": {
+          "size": 1
+        }
+      }
+    },
+    {
+      "bundleName": "dist/bank_project/polyfills.11fdf4c14cd2066b.js",
+      "totalBytes": 33945,
+      "mappedBytes": 33787,
+      "unmappedBytes": 103,
+      "eolBytes": 1,
+      "sourceMapCommentBytes": 54,
+      "files": {
+        "webpack:///node_modules/zone.js/fesm2015/zone.js": {
+          "size": 33787
+        },
+        "[sourceMappingURL]": {
+          "size": 54
+        },
+        "[unmapped]": {
+          "size": 103
+        },
+        "[EOLs]": {
+          "size": 1
+        }
+      }
+    },
+    {
+      "bundleName": "dist/bank_project/runtime.3917bc96b3d6e615.js",
+      "totalBytes": 2878,
+      "mappedBytes": 2802,
+      "unmappedBytes": 23,
+      "eolBytes": 1,
+      "sourceMapCommentBytes": 52,
+      "files": {
+        "webpack:///webpack/runtime/chunk loaded": {
+          "size": 334
+        },
+        "webpack:///webpack/bootstrap": {
+          "size": 128
+        },
+        "webpack:///webpack/runtime/define property getters": {
+          "size": 101
+        },
+        "webpack:///webpack/runtime/ensure chunk": {
+          "size": 78
+        },
+        "webpack:///webpack/runtime/get javascript chunk filename": {
+          "size": 157
+        },
+        "webpack:///webpack/runtime/get mini-css chunk filename": {
+          "size": 17
+        },
+        "webpack:///webpack/runtime/hasOwnProperty shorthand": {
+          "size": 62
+        },
+        "webpack:///webpack/runtime/load script": {
+          "size": 758
+        },
+        "webpack:///webpack/runtime/make namespace object": {
+          "size": 167
+        },
+        "webpack:///webpack/runtime/trusted types policy": {
+          "size": 162
+        },
+        "webpack:///webpack/runtime/trusted types script url": {
+          "size": 34
+        },
+        "webpack:///webpack/runtime/publicPath": {
+          "size": 20
+        },
+        "webpack:///webpack/runtime/jsonp chunk loading": {
+          "size": 784
+        },
+        "[sourceMappingURL]": {
+          "size": 52
+        },
+        "[unmapped]": {
+          "size": 23
+        },
+        "[EOLs]": {
+          "size": 1
+        }
+      }
+    },
+    {
+      "bundleName": "dist/bank_project/scripts.7ae35379468e5ee3.js",
+      "totalBytes": 89963,
+      "mappedBytes": 89657,
+      "unmappedBytes": 243,
+      "eolBytes": 11,
+      "sourceMapCommentBytes": 52,
+      "files": {
+        "webpack:///node_modules\\jquery\\dist\\jquery.js": {
+          "size": 89657
+        },
+        "[sourceMappingURL]": {
+          "size": 52
+        },
+        "[unmapped]": {
+          "size": 243
+        },
+        "[EOLs]": {
+          "size": 11
+        }
+      }
+    }
+  ]
+}

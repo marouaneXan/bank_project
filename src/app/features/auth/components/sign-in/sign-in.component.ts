@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
-import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
 import { TokenService } from 'src/app/core/services/token.service';
 import { authCodeFlowConfig } from 'src/app/sso-config';
 @Component({
@@ -17,7 +16,6 @@ export class SignInComponent implements OnInit {
   }
   configureSSO() {
     this.oauthService.configure(authCodeFlowConfig)
-    // this.oauthService.tokenValidationHandler = new JwksValidationHandler()
     this.oauthService.loadDiscoveryDocumentAndTryLogin().then(() => this.router.navigateByUrl('admin'))
   }
   login() {

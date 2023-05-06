@@ -27,10 +27,8 @@ export class ProtectionInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         console.log(error);
         if (error.status === 403 && error.statusText === "Forbidden") {
-          // Retry the request up to 3 times before giving up
           return this.handle403Error(request, next).pipe(retry(3));
         } else if (error.status === 401 && error.statusText === "Unauthorized") {
-          // If 401 status is returned, try to refresh the token
           return this.handle401Error(request, next);
         }
         return throwError(error);
@@ -39,14 +37,12 @@ export class ProtectionInterceptor implements HttpInterceptor {
   }
 
   private handle403Error(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Add any necessary headers or parameters to the request
     const accessToken = this.oauthService.getAccessToken();
     request = request.clone({
       setHeaders: {
         Authorization: `Bearer ${accessToken}`
       }
     });
-    // Retry the request with the updated request object
     return next.handle(request);
   }
 

@@ -1,4 +1,4 @@
-import { Component, LOCALE_ID } from '@angular/core';
+import { Component } from '@angular/core';
 import { TransactionService } from 'src/app/features/transaction/services/transaction.service';
 
 @Component({
