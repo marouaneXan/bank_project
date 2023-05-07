@@ -8,7 +8,6 @@ import { TransactionService } from 'src/app/features/transaction/services/transa
 })
 export class DashboardComponent {
   transactions = 0;
-  todayTransactions = 0;
   deletedTransactions = 0;
   addedTransactions = 0;
   cards = [
@@ -19,7 +18,7 @@ export class DashboardComponent {
     },
     {
       title: 'today transactions',
-      statistic: this.todayTransactions,
+      statistic: this.addedTransactions,
       icon: 'fa-solid fa-person-circle-check'
     },
     {
@@ -28,8 +27,8 @@ export class DashboardComponent {
       icon: 'fa-solid fa-trash'
     },
     {
-      title: 'total amount',
-      statistic: this.addedTransactions,
+      title: 'deleted transactions',
+      statistic: this.deletedTransactions,
       icon: 'fa-solid fa-money-check-dollar'
     }
   ];
@@ -43,14 +42,14 @@ export class DashboardComponent {
   statistics() {
     this.transactionService.getListTransaction().subscribe(
       (res: any) => {
-        console.log(res);
+        console.log('All Transactions:', res);
         this.transactions = res.length;
         this.deletedTransactions = this.transactionService.getDeletedTransactionCount();
-        this.addedTransactions = this.transactionService.getAddedTransactionCount();
+        this.addedTransactions = this.transactionService.getTodayTransactionCount(res);
         this.cards[0].statistic = this.transactions;
-        this.cards[1].statistic = this.todayTransactions;
+        this.cards[1].statistic = this.addedTransactions;
         this.cards[2].statistic = this.deletedTransactions;
-        this.cards[3].statistic = this.addedTransactions;
+        this.cards[3].statistic = this.deletedTransactions;
       },
       (error: any) => {
         console.error(error);
