@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OAuthService, OAuthSuccessEvent } from 'angular-oauth2-oidc';
-import { TokenService } from 'src/app/core/services/token.service';
+import { ToastrService } from 'ngx-toastr';
 import { authCodeFlowConfig } from 'src/app/sso-config';
 @Component({
   selector: 'app-sign-in',
@@ -9,30 +9,30 @@ import { authCodeFlowConfig } from 'src/app/sso-config';
   styleUrls: ['./sign-in.component.css']
 })
 
-export class SignInComponent {
+export class SignInComponent implements OnInit {
   loading = false;
   showError = false;
-  constructor(private oauthService: OAuthService, private router: Router, private tokenService: TokenService) { }
-
+  showSuccess = false;
+  constructor(private oauthService: OAuthService, private router: Router, private toastr: ToastrService) { }
+  ngOnInit(): void {
+    this.configureSSO()
+  }
   async configureSSO() {
     this.oauthService.configure(authCodeFlowConfig);
     try {
       await this.oauthService.loadDiscoveryDocumentAndTryLogin();
       if (this.oauthService.hasValidAccessToken()) {
+        this.toastr.success('Successfully logged in.');
         this.router.navigateByUrl('admin');
       }
     } catch (error) {
-      this.showError = true;
-      setTimeout(() => {
-        this.showError = false;
-      }, 3000);
+      this.toastr.error('Error connecting to Keycloak. Please try again later.')
     } finally {
       this.loading = false;
     }
 
-    this.oauthService.events.subscribe(event => {
+    this.oauthService.events.subscribe((event) => {
       if (event instanceof OAuthSuccessEvent && event.type === 'token_received') {
-        console.log(event.type);
         this.router.navigateByUrl('admin');
       }
     });
@@ -41,7 +41,6 @@ export class SignInComponent {
   login() {
     this.loading = true;
     this.oauthService.initCodeFlow();
-    this.configureSSO()
   }
   logout() {
     this.oauthService.logOut()
