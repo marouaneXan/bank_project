@@ -1,4 +1,9 @@
 <div class="flex items-center justify-center w-screen h-screen flex-column bg-gray-100">
+  <div *ngIf="showError"
+    class="fixed text-center top-5 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-md shadow-md"
+    role="alert">
+    <span>Error connecting to Keycloak. Please try again later.</span>
+  </div>
   <div class="bg-white rounded-lg shadow sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden">
     <div class="px-4 py-8 sm:px-10">
       <div class="relative mt-6">
@@ -15,7 +20,10 @@
               <button (click)="login()"
                 class="bg-blue-500 w-full cursor-pointer text-white font-medium uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                 type="button">
-                sign in with keycloak
+                <div class="flex justify-center items-center gap-2 w-full">
+                  <span>{{loading ? 'Redirecting to keycloak...':'sign in with keycloak'}}</span>
+                  <app-spinner *ngIf="loading" [props]="{width:'22px',height:'22px'}"></app-spinner>
+                </div>
               </button>
             </span>
           </div>
