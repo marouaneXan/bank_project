@@ -10,6 +10,7 @@ export class DashboardComponent {
   transactions = 0;
   deletedTransactions = 0;
   addedTransactions = 0;
+  loading = false
   cards = [
     {
       title: 'number of transactions',
@@ -40,9 +41,10 @@ export class DashboardComponent {
   }
 
   statistics() {
+    this.loading = true
     this.transactionService.getListTransaction().subscribe(
       (res: any) => {
-        console.log('All Transactions:', res);
+        this.loading = false
         this.transactions = res.length;
         this.deletedTransactions = this.transactionService.getDeletedTransactionCount();
         this.addedTransactions = this.transactionService.getTodayTransactionCount(res);
@@ -52,6 +54,7 @@ export class DashboardComponent {
         this.cards[3].statistic = this.deletedTransactions;
       },
       (error: any) => {
+        this.loading = false
         console.error(error);
       }
     );

@@ -1,7 +1,8 @@
 <div class="flex items-start justify-between py-4 ml-2 capitalize border-b rounded-t">
     <h3 class="text-lg font-medium">statistics</h3>
 </div>
-<div class="flex flex-wrap w-full">
+<app-spinner *ngIf="loading" [props]="{width:'28px',height:'28px'}"></app-spinner>
+<div class="flex flex-wrap w-full" *ngIf="!loading">
     <div *ngFor="let card of cards" class="w-full sm:w-6/12 md:w-4/12 lg:w-3/12 px-2">
         <div class="bg-gray-100 flex flex-col min-w-0 break-words rounded mb-6 xl:mb-0 shadow-lg">
             <div class="flex-auto p-4">
