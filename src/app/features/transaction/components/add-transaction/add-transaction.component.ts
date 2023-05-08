@@ -14,7 +14,7 @@ export class AddTransactionComponent {
   step: number = 0
   isLoading: boolean = false
   success: boolean = false
-  constructor(private toastr: ToastrService, private transactionService: TransactionService, private loadingService: LoadingService,private tokenService:TokenService) { }
+  constructor(private toastr: ToastrService, private transactionService: TransactionService, private loadingService: LoadingService, private tokenService: TokenService) { }
   transactionForm = new FormGroup({
     sourceAccount: new FormControl<string | null>(null, [Validators.required]),
     destinationAccount: new FormControl<string | null>(null, [Validators.required]),
@@ -23,7 +23,7 @@ export class AddTransactionComponent {
   })
   nextStep() {
     const { value }: FormGroup = this.transactionForm;
-    const fields = ['sourceAccount', 'destinationAccount', 'amount','agentId'];
+    const fields = ['sourceAccount', 'destinationAccount', 'amount', 'agentId'];
 
     if (fields.some(field => !value[field])) {
       this.toastr.warning('Please add all fields');
@@ -42,12 +42,19 @@ export class AddTransactionComponent {
       this.isLoading = true
       this.loadingService.show()
       this.transactionService.addTransaction(transactionForm.value).subscribe(
-        res => {
-          this.isLoading = false
-          this.success = true
-          this.loadingService.hide()
-          this.transactionForm.reset()
-          this.step++
+        (res: any) => {
+          if (res.status !== 500) {
+            this.isLoading = false
+            this.success = true
+            this.loadingService.hide()
+            this.transactionForm.reset()
+            this.step++
+          } else {
+            this.toastr.error('Error on adding new transaction :(');
+            this.isLoading = false
+            this.success = false
+            this.loadingService.hide()
+          }
         },
         err => {
           this.toastr.error(err);
