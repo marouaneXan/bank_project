@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { ProtectionInterceptor } from './core/interceptor/protection.interceptor';
+import { WebSocketService } from './core/services/websocket.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { ProtectionInterceptor } from './core/interceptor/protection.interceptor
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
      HttpClientModule,
-     OAuthModule.forRoot()
+     OAuthModule.forRoot(),
   ],
   providers: [
     {
@@ -27,6 +28,7 @@ import { ProtectionInterceptor } from './core/interceptor/protection.interceptor
       useClass: ProtectionInterceptor,
       multi: true,
     },
+    WebSocketService
   ],
   bootstrap: [AppComponent]
 })

@@ -38,25 +38,29 @@ export class DashboardComponent {
 
   ngOnInit(): void {
     this.statistics();
-  }
+    this.getTotalTransactions()
+  };
 
   statistics() {
     this.loading = true
     this.transactionService.getListTransaction().subscribe(
       (res: any) => {
         this.loading = false
-        this.transactions = res.length;
-        this.deletedTransactions = this.transactionService.getDeletedTransactionCount();
         this.addedTransactions = this.transactionService.getTodayTransactionCount(res);
-        this.cards[0].statistic = this.transactions;
-        this.cards[1].statistic = this.addedTransactions;
-        this.cards[2].statistic = this.deletedTransactions;
-        this.cards[3].statistic = this.deletedTransactions;
       },
       (error: any) => {
         this.loading = false
         console.error(error);
       }
     );
+  }
+  getTotalTransactions() {
+    this.transactionService.getTotalTransactions().subscribe(
+      res => {
+        console.log(res);
+        this.transactions=res
+        this.cards[0].statistic = this.transactions;
+      }
+    )
   }
 }
