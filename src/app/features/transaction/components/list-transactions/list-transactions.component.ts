@@ -16,7 +16,11 @@ export class ListTransactionsComponent {
   today = new Date()
   filteredTransactions: Transaction[] | Transaction = [];
   searchQuery: string = '';
-  emptyTransactionsList: string = ''
+  emptyTransactionsList: string = '';
+  currentPage: number = 1;
+  itemsPerPage: number = 8;
+  totalPages: number = 1;
+
   constructor(private transactionService: TransactionService, private loadingService: LoadingService) { }
 
   ngOnInit(): void {
@@ -28,6 +32,8 @@ export class ListTransactionsComponent {
     this.loadingService.show()
     this.transactionService.getListTransaction().subscribe((Transaction) => {
       this.listTransaction = Transaction as Transaction[]
+      this.totalPages = Math.ceil(this.listTransaction.length / this.itemsPerPage);
+      this.listTransaction = this.listTransaction.slice((this.currentPage - 1) * this.itemsPerPage, this.currentPage * this.itemsPerPage);
       this.isLoading = false
       this.loadingService.hide()
       this.emptyTransactionsList = "";
@@ -58,4 +64,8 @@ export class ListTransactionsComponent {
     }
   }
 
+  onPageChange(newPage: number) {
+    this.currentPage = newPage;
+    this.getTransactions();
+  }
 }
