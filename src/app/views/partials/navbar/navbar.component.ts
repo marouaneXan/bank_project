@@ -21,5 +21,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     const agenceClaims: any = this.oauthService.getIdentityClaims()
     this.agence_name = agenceClaims.name ? agenceClaims.name : ''
+    console.log(agenceClaims);
   }
 }

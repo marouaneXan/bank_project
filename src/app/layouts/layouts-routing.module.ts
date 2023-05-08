@@ -9,6 +9,7 @@ const routes: Routes = [
     children:[
       { path: 'transactions', loadChildren: () => import('../features/transaction/transaction.module').then(m => m.TransactionModule) },
       { path: '', loadChildren: () => import('../views/dashboard/dashboard.module').then(m => m.DashboardModule) },
+      { path: '', loadChildren: () => import('../views/profile/profile.module').then(m => m.ProfileModule) },
     ]
   }, 
 ];
