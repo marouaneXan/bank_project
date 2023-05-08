@@ -43,7 +43,7 @@ export class TransactionService {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const todayTransactions = transactions.filter(transaction => {
-      if (transaction.dateCreated) { // Use dateCreated instead of date
+      if (transaction.dateCreated) {
         const transactionDate = new Date(transaction.dateCreated);
         transactionDate.setHours(0, 0, 0, 0);
         return transactionDate.getTime() === today.getTime();
@@ -51,10 +51,5 @@ export class TransactionService {
       return false;
     });
     return todayTransactions.length;
-  }
-
-
-  serverUpDown() {
-    return this.http.get(`${this.endpoint}/actuator/health`)
   }
 }
