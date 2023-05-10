@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject, catchError, tap, throwError } from 'rxjs';
+import { catchError, throwError } from 'rxjs';
 import { Transaction } from '../interface/transaction';
 import { WebSocketService } from 'src/app/core/services/websocket.service';
+import { envirenment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransactionService {
-  private endpoint = "https://api-2445584170597.production.gw.apicast.io:443"
-  private wsUrl = 'wss://bff.serveo.net';
   constructor(private http: HttpClient, private wsService: WebSocketService) { }
   addTransaction(data: Transaction) {
-    return this.http.post(`${this.endpoint}`, data).pipe(
+    return this.http.post(envirenment.BASE_URL, data).pipe(
       catchError((error: any) => {
         return throwError('Error on making new transaction');
       })
@@ -20,21 +19,20 @@ export class TransactionService {
   }
   getListTransaction() {
     try {
-      return this.http.get(`${this.endpoint}`)
+      return this.http.get(envirenment.BASE_URL)
     } catch (error) {
       return throwError(error);
-
     }
   }
   deleteTransaction(transaction_id: number) {
-    return this.http.delete(`${this.endpoint}/${transaction_id}`).pipe(
+    return this.http.delete(`${envirenment.BASE_URL}/${transaction_id}`).pipe(
       catchError((error: any) => {
         return throwError('Error on deleting transaction');
       })
     );
   }
   getTotalTransactions() {
-    return this.wsService.connect(this.wsUrl + '/total');
+    return this.wsService.connect(envirenment.WS_URL + '/total');
   }
   getTodayTransactionCount(transactions: Transaction[]): number {
     const today = new Date();
